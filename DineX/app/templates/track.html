@@ -1,0 +1,869 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Track Your Order - DineX</title>
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;600;700;800&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="https://unpkg.com/leaflet@1.9.4/dist/leaflet.css" />
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        :root {
+            --primary: #ff6b35;
+            --primary-dark: #e55a2b;
+            --secondary: #f7931e;
+            --dark-bg: #0f0f1e;
+            --darker-bg: #0a0a14;
+            --text-primary: #ffffff;
+            --text-secondary: rgba(255, 255, 255, 0.7);
+            --text-muted: rgba(255, 255, 255, 0.5);
+            --glass-bg: rgba(255, 255, 255, 0.05);
+            --glass-border: rgba(255, 255, 255, 0.1);
+        }
+
+        body {
+            font-family: 'Poppins', sans-serif;
+            background: linear-gradient(135deg, #0f0f1e 0%, #1a0b2e 50%, #0f0f1e 100%);
+            color: white;
+            min-height: 100vh;
+        }
+
+        #navbar {
+            position: fixed;
+            top: 0;
+            left: 0;
+            right: 0;
+            z-index: 1000;
+            padding: 1rem 0;
+            background: rgba(15, 15, 30, 0.8);
+            backdrop-filter: blur(20px);
+            box-shadow: 0 4px 30px rgba(0, 0, 0, 0.3);
+            transition: all 0.3s ease;
+        }
+
+        .nav-container {
+            max-width: 1400px;
+            margin: 0 auto;
+            padding: 0 2rem;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+        }
+
+        .logo {
+            display: flex;
+            align-items: center;
+            gap: 0.5rem;
+            cursor: pointer;
+            text-decoration: none;
+        }
+
+        .logo-text {
+            font-size: 2rem;
+            font-weight: 800;
+            background: linear-gradient(135deg, var(--primary), #ff4081);
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+            background-clip: text;
+        }
+
+        .nav-links {
+            display: flex;
+            list-style: none;
+            gap: 2rem;
+        }
+
+        .nav-link {
+            color: var(--text-primary);
+            text-decoration: none;
+            font-weight: 500;
+            font-size: 0.95rem;
+            transition: color 0.3s ease;
+        }
+
+        .nav-link:hover {
+            color: var(--primary);
+        }
+
+        .container {
+            max-width: 1400px;
+            margin: 0 auto;
+            padding: 120px 2rem 4rem;
+        }
+
+        .tracking-header {
+            text-align: center;
+            margin-bottom: 3rem;
+        }
+
+        .success-icon {
+            width: 100px;
+            height: 100px;
+            background: linear-gradient(135deg, #00d4aa, #00b894);
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-size: 3rem;
+            margin: 0 auto 1.5rem;
+            animation: scaleIn 0.5s ease;
+        }
+
+        @keyframes scaleIn {
+            from {
+                transform: scale(0);
+                opacity: 0;
+            }
+            to {
+                transform: scale(1);
+                opacity: 1;
+            }
+        }
+
+        .tracking-header h1 {
+            font-size: 2.5rem;
+            margin-bottom: 0.5rem;
+            background: linear-gradient(135deg, #ff6b35, #ff4081);
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+        }
+
+        .order-id-display {
+            font-size: 1.2rem;
+            color: rgba(255, 255, 255, 0.7);
+            margin-bottom: 1rem;
+        }
+
+        .order-id-number {
+            color: #ff6b35;
+            font-weight: 700;
+        }
+
+        .tracking-grid {
+            display: grid;
+            grid-template-columns: 1.2fr 1fr;
+            gap: 2rem;
+            margin-bottom: 2rem;
+        }
+
+        .glass-card {
+            background: rgba(255, 255, 255, 0.05);
+            backdrop-filter: blur(20px);
+            border: 1px solid rgba(255, 255, 255, 0.1);
+            border-radius: 20px;
+            padding: 2rem;
+            box-shadow: 0 8px 32px rgba(0, 0, 0, 0.37);
+        }
+
+        .card-title {
+            font-size: 1.5rem;
+            font-weight: 700;
+            margin-bottom: 2rem;
+            display: flex;
+            align-items: center;
+            gap: 0.5rem;
+        }
+
+        #map {
+            height: 500px;
+            border-radius: 16px;
+            overflow: hidden;
+            box-shadow: 0 8px 32px rgba(0, 0, 0, 0.5);
+        }
+
+        .timeline-item {
+            display: flex;
+            gap: 1.5rem;
+            margin-bottom: 2.5rem;
+            position: relative;
+        }
+
+        .timeline-item::before {
+            content: '';
+            position: absolute;
+            left: 22px;
+            top: 50px;
+            bottom: -30px;
+            width: 2px;
+            background: rgba(255, 255, 255, 0.1);
+        }
+
+        .timeline-item:last-child::before {
+            display: none;
+        }
+
+        .timeline-dot {
+            width: 45px;
+            height: 45px;
+            border-radius: 50%;
+            background: rgba(255, 255, 255, 0.1);
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            flex-shrink: 0;
+            transition: all 0.3s ease;
+            position: relative;
+            z-index: 1;
+        }
+
+        .timeline-item.completed .timeline-dot {
+            background: linear-gradient(135deg, #00d4aa, #00b894);
+            animation: pulse 2s infinite;
+        }
+
+        .timeline-item.active .timeline-dot {
+            background: linear-gradient(135deg, #ff6b35, #ff4081);
+            animation: pulse 2s infinite;
+            box-shadow: 0 0 20px rgba(255, 107, 53, 0.5);
+        }
+
+        @keyframes pulse {
+            0%, 100% {
+                transform: scale(1);
+            }
+            50% {
+                transform: scale(1.1);
+            }
+        }
+
+        .timeline-content {
+            flex: 1;
+        }
+
+        .timeline-title {
+            font-size: 1.1rem;
+            font-weight: 700;
+            margin-bottom: 0.25rem;
+        }
+
+        .timeline-desc {
+            color: rgba(255, 255, 255, 0.6);
+            font-size: 0.9rem;
+            margin-bottom: 0.5rem;
+        }
+
+        .timeline-time {
+            font-size: 0.85rem;
+            color: rgba(255, 255, 255, 0.5);
+        }
+
+        .detail-row {
+            display: flex;
+            justify-content: space-between;
+            padding: 1rem 0;
+            border-bottom: 1px solid rgba(255, 255, 255, 0.1);
+        }
+
+        .detail-row:last-child {
+            border-bottom: none;
+        }
+
+        .detail-label {
+            color: rgba(255, 255, 255, 0.7);
+        }
+
+        .detail-value {
+            font-weight: 600;
+        }
+
+        .priority-badge {
+            display: inline-block;
+            padding: 0.25rem 0.75rem;
+            border-radius: 20px;
+            font-size: 0.85rem;
+            font-weight: 600;
+        }
+
+        .priority-vip {
+            background: linear-gradient(135deg, #ffd700, #ff8c00);
+            color: white;
+        }
+
+        .priority-express {
+            background: linear-gradient(135deg, #ff6b35, #ff4081);
+            color: white;
+        }
+
+        .priority-regular {
+            background: linear-gradient(135deg, #667eea, #764ba2);
+            color: white;
+        }
+
+        .order-items {
+            margin-top: 1.5rem;
+        }
+
+        .item-row {
+            display: flex;
+            justify-content: space-between;
+            padding: 0.75rem;
+            background: rgba(255, 255, 255, 0.03);
+            border-radius: 8px;
+            margin-bottom: 0.5rem;
+        }
+
+        .item-name {
+            flex: 1;
+        }
+
+        .item-qty {
+            color: rgba(255, 255, 255, 0.6);
+            margin: 0 1rem;
+        }
+
+        .item-price {
+            font-weight: 700;
+            background: linear-gradient(135deg, #ff6b35, #ff4081);
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+        }
+
+        .eta-card {
+            text-align: center;
+            margin-bottom: 2rem;
+        }
+
+        .eta-number {
+            font-size: 4rem;
+            font-weight: 800;
+            background: linear-gradient(135deg, #ff6b35, #ff4081);
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+            margin-bottom: 0.5rem;
+        }
+
+        .eta-label {
+            font-size: 1.2rem;
+            color: rgba(255, 255, 255, 0.7);
+        }
+
+        .action-buttons {
+            display: flex;
+            gap: 1rem;
+            margin-top: 2rem;
+        }
+
+        .btn {
+            flex: 1;
+            padding: 1rem;
+            border-radius: 12px;
+            border: none;
+            font-weight: 600;
+            cursor: pointer;
+            transition: all 0.3s ease;
+            font-family: 'Poppins', sans-serif;
+            font-size: 1rem;
+        }
+
+        .btn-primary {
+            background: linear-gradient(135deg, #ff6b35, #ff4081);
+            color: white;
+        }
+
+        .btn-primary:hover {
+            transform: translateY(-2px);
+            box-shadow: 0 10px 40px rgba(255, 107, 53, 0.4);
+        }
+
+        .btn-secondary {
+            background: rgba(255, 255, 255, 0.1);
+            color: white;
+            border: 1px solid rgba(255, 255, 255, 0.2);
+        }
+
+        .btn-secondary:hover {
+            background: rgba(255, 255, 255, 0.2);
+        }
+
+        .loading {
+            text-align: center;
+            padding: 3rem;
+        }
+
+        .spinner {
+            width: 50px;
+            height: 50px;
+            border: 3px solid rgba(255, 255, 255, 0.1);
+            border-top: 3px solid #ff6b35;
+            border-radius: 50%;
+            animation: spin 1s linear infinite;
+            margin: 0 auto 1rem;
+        }
+
+        @keyframes spin {
+            to { transform: rotate(360deg); }
+        }
+
+        .leaflet-popup-content-wrapper {
+            background: rgba(15, 15, 30, 0.95);
+            color: white;
+            border-radius: 12px;
+        }
+
+        .leaflet-popup-tip {
+            background: rgba(15, 15, 30, 0.95);
+        }
+
+        @media (max-width: 768px) {
+            .tracking-grid {
+                grid-template-columns: 1fr;
+            }
+            .nav-links {
+                display: none;
+            }
+            #map {
+                height: 350px;
+            }
+        }
+    </style>
+</head>
+<body>
+    <nav id="navbar">
+        <div class="nav-container">
+            <a href="/" class="logo">
+                <span class="logo-text">DineX</span>
+            </a>
+            <ul class="nav-links">
+                <li><a href="/" class="nav-link">Home</a></li>
+                <li><a href="/#menu" class="nav-link">Menu</a></li>
+                <li><a href="/#orders" class="nav-link">Orders</a></li>
+                <li><a href="/track" class="nav-link">Track Order</a></li>
+            </ul>
+        </div>
+    </nav>
+
+    <div class="container">
+        <div class="tracking-header">
+            <div class="success-icon">✓</div>
+            <h1>Order Tracking</h1>
+            <div class="order-id-display">
+                Order ID: <span class="order-id-number" id="orderIdDisplay">Loading...</span>
+            </div>
+        </div>
+
+        <div id="loadingState" class="loading">
+            <div class="spinner"></div>
+            <p>Loading order details...</p>
+        </div>
+
+        <div id="trackingContent" style="display: none;">
+            <div class="glass-card eta-card">
+                <div class="eta-number" id="etaNumber">25</div>
+                <div class="eta-label">Minutes Estimated</div>
+            </div>
+
+            <div class="tracking-grid">
+                <div class="glass-card">
+                    <h2 class="card-title">🗺️ Live Tracking</h2>
+                    <div id="map"></div>
+                    <div style="margin-top: 1rem; font-size: 0.9rem; color: rgba(255,255,255,0.6);">
+                        <p><strong>🏪 Restaurant:</strong> <span id="restaurantAddress">Loading...</span></p>
+                        <p><strong>📍 Delivery:</strong> <span id="deliveryAddressMap">Loading...</span></p>
+                        <p><strong>📏 Distance:</strong> <span id="distanceDisplay">Calculating...</span></p>
+                    </div>
+                </div>
+
+                <div>
+                    <div class="glass-card" style="margin-bottom: 1.5rem;">
+                        <h2 class="card-title">📍 Order Progress</h2>
+                        <div class="timeline" id="orderTimeline"></div>
+                    </div>
+
+                    <div class="glass-card">
+                        <h3 style="margin-bottom: 1rem; font-size: 1.2rem;">📦 Order Details</h3>
+                        
+                        <div class="detail-row">
+                            <span class="detail-label">Customer</span>
+                            <span class="detail-value" id="customerName">-</span>
+                        </div>
+                        
+                        <div class="detail-row">
+                            <span class="detail-label">Phone</span>
+                            <span class="detail-value" id="customerPhone">-</span>
+                        </div>
+                        
+                        <div class="detail-row">
+                            <span class="detail-label">Priority</span>
+                            <span class="detail-value" id="orderPriority">-</span>
+                        </div>
+
+                        <div class="order-items" id="orderItems">
+                            <h4 style="margin-bottom: 0.75rem; font-size: 1rem;">Items</h4>
+                        </div>
+
+                        <div class="detail-row" style="margin-top: 1rem; font-size: 1.1rem; font-weight: 700;">
+                            <span>Total</span>
+                            <span style="color: #ff6b35;" id="orderTotal">Rs. 0</span>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <div class="action-buttons">
+                <button class="btn btn-secondary" onclick="window.location.href='/'">
+                    🏠 Back to Home
+                </button>
+                <button class="btn btn-primary" onclick="refreshStatus()">
+                    🔄 Refresh Status
+                </button>
+            </div>
+        </div>
+    </div>
+
+    <script src="https://unpkg.com/leaflet@1.9.4/dist/leaflet.js"></script>
+    <script>
+        let lastStatus = null;
+
+        console.log('🚀 Track.html loaded - Starting debugging...\n');
+
+        // ✅ Global variables
+        let map = null;
+        let currentOrder = null;
+        let deliveryMarker = null;
+        let restaurantMarker = null;
+        let routeLine = null;
+
+        // Timeline stages
+        const timelineStages = [
+            { id: 'pending', icon: '📝', title: 'Order Received', desc: 'Your order has been received and confirmed' },
+            { id: 'processing', icon: '👨‍🍳', title: 'Preparing Food', desc: 'Our chefs are preparing your delicious meal' },
+            { id: 'ready', icon: '✅', title: 'Ready for Delivery', desc: 'Your order is ready and packed' },
+            { id: 'out_for_delivery', icon: '🚴', title: 'Out for Delivery', desc: 'Delivery rider is on the way' },
+            { id: 'completed', icon: '🎉', title: 'Delivered', desc: 'Enjoy your meal!' }
+        ];
+
+        // Get order ID from URL
+        const urlParams = new URLSearchParams(window.location.search);
+        const orderId = urlParams.get('orderId');
+
+        console.log('📦 Order ID from URL:', orderId);
+
+        // ✅ MAIN FUNCTION: Load order tracking
+        async function loadOrderDetails() {
+            console.log('\n' + '='.repeat(60));
+            console.log('🔄 LOADING ORDER TRACKING');
+            console.log('='.repeat(60));
+
+            if (!orderId) {
+                console.error('❌ No order ID provided');
+                showErrorState('No Order ID', 'Please provide an order ID to track');
+                return;
+            }
+
+            try {
+                console.log(`📡 Fetching: /api/orders/${orderId}/tracking`);
+                
+                const response = await fetch(`/api/orders/${orderId}/tracking`);
+                console.log('📥 Response status:', response.status);
+                
+                const data = await response.json();
+                console.log('📦 Response data:', data);
+
+                if (data.success && data.order) {
+                    console.log('✅ Order found successfully!');
+                    console.log('   Order ID:', data.order.orderId);
+                    console.log('   Status:', data.order.status);
+                    console.log('   Customer:', data.order.customerName);
+                    
+                    currentOrder = data.order;
+                    displayOrderDetails(data.order, data.tracking);
+                } else {
+                    throw new Error(data.message || 'Order not found');
+                }
+            } catch (error) {
+                console.error('❌ Error loading order:', error);
+                showErrorState('Order Not Found', `Order ${orderId} could not be found`);
+            }
+
+            console.log('='.repeat(60) + '\n');
+        }
+
+        // ✅ DISPLAY ORDER DETAILS
+        function displayOrderDetails(order, tracking) {
+            console.log('\n' + '='.repeat(60));
+            console.log('🎨 DISPLAYING ORDER DETAILS');
+            console.log('='.repeat(60));
+
+            // Hide loading, show content
+            document.getElementById('loadingState').style.display = 'none';
+            document.getElementById('trackingContent').style.display = 'block';
+
+            // Order ID
+            document.getElementById('orderIdDisplay').textContent = order.orderId;
+            console.log('✅ Order ID displayed:', order.orderId);
+
+            // ETA
+            document.getElementById('etaNumber').textContent = tracking.eta;
+            console.log('✅ ETA displayed:', tracking.eta, 'minutes');
+
+            // Customer details
+            document.getElementById('customerName').textContent = order.customerName;
+            document.getElementById('customerPhone').textContent = order.customerPhone;
+            
+            // ✅ FIX: Delivery address - Try multiple sources
+            const deliveryAddressText = tracking.delivery.formatted_address || 
+                                       tracking.delivery.address || 
+                                       order.deliveryAddress;
+            document.getElementById('deliveryAddressMap').textContent = deliveryAddressText;
+            console.log('✅ Customer details displayed');
+            console.log('   Name:', order.customerName);
+            console.log('   Phone:', order.customerPhone);
+            console.log('   Delivery Address:', deliveryAddressText);
+
+            // Restaurant address
+            document.getElementById('restaurantAddress').textContent = tracking.restaurant.address;
+            console.log('✅ Restaurant address:', tracking.restaurant.address);
+
+            // Priority badge
+            const priorityEl = document.getElementById('orderPriority');
+            const priorityClass = `priority-${order.orderType}`;
+            const priorityIcon = order.orderType === 'vip' ? '👑' : 
+                                order.orderType === 'express' ? '⚡' : '🚴';
+            priorityEl.innerHTML = `<span class="priority-badge ${priorityClass}">${priorityIcon} ${order.orderType.toUpperCase()}</span>`;
+            console.log('✅ Priority badge:', order.orderType);
+
+            // Order items
+            const itemsContainer = document.getElementById('orderItems');
+            itemsContainer.innerHTML = '<h4 style="margin-bottom: 0.75rem; font-size: 1rem;">Items</h4>';
+            
+            order.items.forEach(item => {
+                const itemRow = document.createElement('div');
+                itemRow.className = 'item-row';
+                itemRow.innerHTML = `
+                    <span class="item-name">${item.name}</span>
+                    <span class="item-qty">× ${item.quantity}</span>
+                    <span class="item-price">Rs. ${item.price * item.quantity}</span>
+                `;
+                itemsContainer.appendChild(itemRow);
+            });
+            console.log('✅ Order items displayed:', order.items.length, 'items');
+
+            // Total
+            document.getElementById('orderTotal').textContent = `Rs. ${order.total}`;
+            console.log('✅ Total displayed: Rs.', order.total);
+
+            // Timeline - prefer server-provided derived timelineStatus to avoid mismatch
+            renderTimeline(order.timelineStatus || order.status);
+            console.log('✅ Timeline rendered for status:', order.status);
+
+            // ✅ Initialize map
+            console.log('\n🗺️ INITIALIZING MAP');
+            console.log('   Restaurant:', tracking.restaurant.lat, tracking.restaurant.lng);
+            console.log('   Delivery:', tracking.delivery.lat, tracking.delivery.lng);
+            console.log('   Route data:', tracking.route);
+            
+            initMap(tracking);
+
+            console.log('='.repeat(60) + '\n');
+        }
+
+        // ✅ INITIALIZE MAP (ONLY ONCE)
+        function initMap(tracking) {
+            console.log('\n🗺️ MAP INITIALIZATION START');
+
+            // ✅ Destroy existing map if it exists
+            if (map) {
+                console.log('🗑️ Removing old map instance');
+                map.remove();
+                map = null;
+            }
+
+            const restaurant = tracking.restaurant;
+            const delivery = tracking.delivery;
+
+            console.log('   Restaurant coords:', restaurant.lat, restaurant.lng);
+            console.log('   Delivery coords:', delivery.lat, delivery.lng);
+
+            // Calculate center
+            const centerLat = (restaurant.lat + delivery.lat) / 2;
+            const centerLng = (restaurant.lng + delivery.lng) / 2;
+
+            console.log('   Map center:', centerLat, centerLng);
+
+            // ✅ Create map
+            try {
+                map = L.map('map').setView([centerLat, centerLng], 12);
+                console.log('✅ Leaflet map created');
+
+                L.tileLayer('https://{s}.tile.openstreetmap.org/{z}/{x}/{y}.png', {
+                    attribution: '© OpenStreetMap contributors'
+                }).addTo(map);
+                console.log('✅ Tile layer added');
+
+                // Restaurant marker
+                restaurantMarker = L.marker([restaurant.lat, restaurant.lng], {
+                    icon: L.divIcon({
+                        className: 'restaurant-marker',
+                        html: '🏪',
+                        iconSize: [30, 30]
+                    })
+                }).addTo(map).bindPopup(`<b>${restaurant.name}</b><br>${restaurant.address}`);
+                console.log('✅ Restaurant marker added');
+
+                // Delivery marker
+                deliveryMarker = L.marker([delivery.lat, delivery.lng], {
+                    icon: L.divIcon({
+                        className: 'delivery-marker',
+                        html: '🏠',
+                        iconSize: [30, 30]
+                    })
+                }).addTo(map).bindPopup(`<b>Delivery Location</b><br>${delivery.address}`);
+                console.log('✅ Delivery marker added');
+
+                // Route line
+                const routeCoords = [
+                    [restaurant.lat, restaurant.lng],
+                    [delivery.lat, delivery.lng]
+                ];
+
+                routeLine = L.polyline(routeCoords, {
+                    color: '#ff6b35',
+                    weight: 4,
+                    opacity: 0.7,
+                    dashArray: '10, 10'
+                }).addTo(map);
+                console.log('✅ Route line added');
+
+                // Fit bounds
+                const bounds = L.latLngBounds([
+                    [restaurant.lat, restaurant.lng],
+                    [delivery.lat, delivery.lng]
+                ]);
+                map.fitBounds(bounds, { padding: [50, 50] });
+                console.log('✅ Map bounds fitted');
+
+                // Display distance
+                if (tracking.route && tracking.route.distance_km) {
+                    document.getElementById('distanceDisplay').textContent = `${tracking.route.distance_km} km`;
+                    console.log('✅ Distance displayed:', tracking.route.distance_km, 'km');
+                }
+
+                console.log('✅ MAP FULLY INITIALIZED\n');
+
+            } catch (error) {
+                console.error('❌ Map initialization error:', error);
+            }
+        }
+
+        // ✅ RENDER TIMELINE
+        function renderTimeline(currentStatus) {
+            const timeline = document.getElementById('orderTimeline');
+            timeline.innerHTML = '';
+
+            const statusIndex = {
+                'pending': 0,
+                'processing': 1,
+                'ready': 2,
+                'out_for_delivery': 3,
+                'completed': 4,
+                'delivered': 4
+            };
+
+            const current = statusIndex[currentStatus] || 0;
+
+            // If the order is fully delivered, mark all steps as completed (green)
+            const allDone = currentStatus === 'completed' || currentStatus === 'delivered';
+
+            timelineStages.forEach((stage, index) => {
+                const item = document.createElement('div');
+                item.className = 'timeline-item';
+
+                if (allDone) {
+                    item.classList.add('completed');
+                } else {
+                    if (index < current) {
+                        item.classList.add('completed');
+                    } else if (index === current) {
+                        item.classList.add('active');
+                    }
+                }
+
+                let timeLabel;
+                if (allDone) {
+                    timeLabel = 'Completed';
+                } else if (index < current) {
+                    timeLabel = 'Completed';
+                } else if (index === current) {
+                    timeLabel = 'In Progress';
+                } else {
+                    timeLabel = 'Pending';
+                }
+
+                item.innerHTML = `
+                    <div class="timeline-dot">
+                        <span style="font-size: 1.2rem;">${stage.icon}</span>
+                    </div>
+                    <div class="timeline-content">
+                        <div class="timeline-title">${stage.title}</div>
+                        <div class="timeline-desc">${stage.desc}</div>
+                        <div class="timeline-time">${timeLabel}</div>
+                    </div>
+                `;
+
+                timeline.appendChild(item);
+            });
+        }
+
+        // ✅ ERROR STATE
+        function showErrorState(title, message) {
+            document.getElementById('loadingState').innerHTML = `
+                <div style="text-align: center; padding: 3rem;">
+                    <div style="font-size: 3rem; margin-bottom: 1rem; color: #ff5370;">❌</div>
+                    <h2>${title}</h2>
+                    <p style="color: rgba(255,255,255,0.6); margin: 1rem 0;">${message}</p>
+                    <button class="btn btn-primary" onclick="window.location.href='/'">Go to Home</button>
+                </div>
+            `;
+        }
+
+        // ✅ REFRESH STATUS
+        async function refreshStatus() {
+            console.log('🔄 Refreshing status...');
+            await loadOrderDetails();
+            showToast('Status refreshed!');
+        }
+
+        // ✅ TOAST NOTIFICATION
+        function showToast(message) {
+            const toast = document.createElement('div');
+            toast.style.cssText = `
+                position: fixed;
+                top: 100px;
+                right: 20px;
+                padding: 1rem 1.5rem;
+                background: rgba(255, 107, 53, 0.2);
+                backdrop-filter: blur(20px);
+                border: 1px solid rgba(255, 107, 53, 0.4);
+                border-radius: 12px;
+                color: white;
+                font-weight: 600;
+                z-index: 10000;
+                animation: slideIn 0.3s ease;
+            `;
+            toast.textContent = message;
+            document.body.appendChild(toast);
+
+            setTimeout(() => {
+                toast.remove();
+            }, 3000);
+        }
+
+        // ✅ AUTO-REFRESH (every 30 seconds)
+        setInterval(() => {
+            console.log('⏰ Auto-refreshing status...');
+            loadOrderDetails();
+        }, 5000);
+
+        // ✅ LOAD ON PAGE LOAD
+        window.addEventListener('DOMContentLoaded', () => {
+            console.log('📄 DOM Content Loaded - Starting tracking...\n');
+            loadOrderDetails();
+        });
+    </script>
+</body>
+</html>

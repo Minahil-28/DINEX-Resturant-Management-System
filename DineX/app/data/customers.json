@@ -1,0 +1,276 @@
+{
+    "customers": [
+        {
+            "phone": "1234567899",
+            "name": "lili lili",
+            "email": "mini6@hotmail.com",
+            "address": "12 b",
+            "orderHistory": [
+                "ORD0015",
+                "ORD0016",
+                "ORD0022"
+            ],
+            "loyaltyPoints": 150,
+            "preferences": [],
+            "isVIP": false,
+            "registeredAt": "2025-12-29T11:33:05.570900",
+            "totalOrders": 3,
+            "totalSpent": 1500
+        },
+        {
+            "phone": "03015920295",
+            "name": "Usman Basit",
+            "email": "usmanbasit@gmail.com",
+            "address": "Khadija Hall, UET Lahore",
+            "orderHistory": [
+                "ORD0024"
+            ],
+            "loyaltyPoints": 80,
+            "preferences": [],
+            "isVIP": false,
+            "registeredAt": "2026-01-24T07:36:30.207379",
+            "totalOrders": 1,
+            "totalSpent": 800
+        },
+        {
+            "phone": "03015921673",
+            "name": "Ali Tahir",
+            "email": "ali@gmail.com",
+            "address": "Khadija Hall , UET Lahore",
+            "orderHistory": [
+                "ORD0020",
+                "ORD0020"
+            ],
+            "loyaltyPoints": 80,
+            "preferences": [],
+            "isVIP": false,
+            "registeredAt": "2026-01-05T18:04:29.310062",
+            "totalOrders": 2,
+            "totalSpent": 800
+        },
+        {
+            "phone": "03000000000",
+            "name": "Yusra Shahid",
+            "email": "admin@dinex.com",
+            "address": "House # 8a street # 9 younaspura baghbanpura Lahore",
+            "orderHistory": [
+                "ORD0013"
+            ],
+            "loyaltyPoints": 165,
+            "preferences": [],
+            "isVIP": false,
+            "registeredAt": "2026-01-05T02:21:43.688753",
+            "totalOrders": 1,
+            "totalSpent": 1650
+        },
+        {
+            "phone": "03015924515",
+            "name": "Ahmad Mehmood",
+            "email": "ahmad123@gmail.com",
+            "address": "Lahore",
+            "orderHistory": [
+                "ORD0028"
+            ],
+            "loyaltyPoints": 115,
+            "preferences": [],
+            "isVIP": false,
+            "registeredAt": "2026-01-03T21:28:32.758558",
+            "totalOrders": 1,
+            "totalSpent": 1150
+        },
+        {
+            "phone": "03015920315",
+            "name": "Minahil Mehmood",
+            "email": "minahilmehmood315@gmail.com",
+            "address": "Gulberg Lahore",
+            "orderHistory": [
+                "ORD0003",
+                "ORD0004",
+                "ORD0005",
+                "ORD0006",
+                "ORD0007",
+                "ORD0008",
+                "ORD0009",
+                "ORD0013",
+                "ORD0017",
+                "ORD0021",
+                "ORD0026",
+                "ORD0027",
+                "ORD0015",
+                "ORD0016",
+                "ORD0017",
+                "ORD0022",
+                "ORD0023",
+                "ORD0021",
+                "ORD0022",
+                "ORD0023"
+            ],
+            "loyaltyPoints": 1158,
+            "preferences": [],
+            "isVIP": false,
+            "registeredAt": "2025-12-30T02:41:09.019246",
+            "totalOrders": 20,
+            "totalSpent": 11580
+        },
+        {
+            "phone": "03015920317",
+            "name": "Iqra Akbar",
+            "email": "iqraakbar@gmail.com",
+            "address": "",
+            "orderHistory": [],
+            "loyaltyPoints": 0,
+            "preferences": [],
+            "isVIP": false,
+            "registeredAt": "2026-01-01T21:22:24.328112",
+            "totalOrders": 0,
+            "totalSpent": 0
+        },
+        {
+            "phone": "03156762315",
+            "name": "Madiha Mehmood",
+            "email": "madiha@gmail.com",
+            "address": "",
+            "orderHistory": [],
+            "loyaltyPoints": 0,
+            "preferences": [],
+            "isVIP": false,
+            "registeredAt": "2026-01-05T17:41:43.285940",
+            "totalOrders": 0,
+            "totalSpent": 0
+        },
+        {
+            "phone": "03015920319",
+            "name": "Rania Mehmood",
+            "email": "rania@gmail.com",
+            "address": "Johar Towm",
+            "orderHistory": [
+                "ORD0019",
+                "ORD0020",
+                "ORD0024",
+                "ORD0018"
+            ],
+            "loyaltyPoints": 285,
+            "preferences": [],
+            "isVIP": false,
+            "registeredAt": "2026-01-03T17:34:03.983156",
+            "totalOrders": 4,
+            "totalSpent": 2850
+        },
+        {
+            "phone": "03230476914",
+            "name": "Yusra Shahid",
+            "email": "syusra84@gmail.com",
+            "address": "",
+            "orderHistory": [],
+            "loyaltyPoints": 0,
+            "preferences": [],
+            "isVIP": false,
+            "registeredAt": "2025-12-27T02:44:58.201201",
+            "totalOrders": 0,
+            "totalSpent": 0
+        },
+        {
+            "phone": "03006762467",
+            "name": "Ayesha Sadeeqa",
+            "email": "ayesha@gmail.com",
+            "address": "",
+            "orderHistory": [],
+            "loyaltyPoints": 0,
+            "preferences": [],
+            "isVIP": false,
+            "registeredAt": "2026-01-01T21:39:15.726306",
+            "totalOrders": 0,
+            "totalSpent": 0
+        },
+        {
+            "phone": "03456762315",
+            "name": "Samina Tahir",
+            "email": "samina@gmail.com",
+            "address": "Khadija Hall, Uet Lahore",
+            "orderHistory": [
+                "ORD0019"
+            ],
+            "loyaltyPoints": 30,
+            "preferences": [],
+            "isVIP": false,
+            "registeredAt": "2026-01-05T17:51:43.057333",
+            "totalOrders": 1,
+            "totalSpent": 300
+        },
+        {
+            "phone": "03126762315",
+            "name": "Aroosha Arif",
+            "email": "aroosha@gmail.com",
+            "address": "Punjab University",
+            "orderHistory": [
+                "ORD0010",
+                "ORD0011",
+                "ORD0012",
+                "ORD0014",
+                "ORD0018",
+                "ORD0025",
+                "ORD0021"
+            ],
+            "loyaltyPoints": 297,
+            "preferences": [],
+            "isVIP": false,
+            "registeredAt": "2026-01-01T21:35:27.657258",
+            "totalOrders": 7,
+            "totalSpent": 2970
+        },
+        {
+            "phone": "03006762315",
+            "name": "Lali Mlali",
+            "email": "lalimlali@gmail.com",
+            "address": "",
+            "orderHistory": [],
+            "loyaltyPoints": 0,
+            "preferences": [],
+            "isVIP": false,
+            "registeredAt": "2026-01-01T21:10:54.009048",
+            "totalOrders": 0,
+            "totalSpent": 0
+        },
+        {
+            "phone": "03009862315",
+            "name": "Ahmad12 Mehmood",
+            "email": "ahmad@gmail.com",
+            "address": "Layyah",
+            "orderHistory": [
+                "ORD0023"
+            ],
+            "loyaltyPoints": 177,
+            "preferences": [],
+            "isVIP": false,
+            "registeredAt": "2026-01-03T18:32:37.508923",
+            "totalOrders": 1,
+            "totalSpent": 1770
+        },
+        {
+            "phone": "03704018969",
+            "name": "Yusra Shahid",
+            "email": "syusra841@gmail.com",
+            "address": "House # 8a street # 9 younaspura baghbanpura Lahore",
+            "orderHistory": [
+                "ORD0004",
+                "ORD0001",
+                "ORD0002",
+                "ORD0005",
+                "ORD0006",
+                "ORD0007",
+                "ORD0008",
+                "ORD0009",
+                "ORD0010",
+                "ORD0011",
+                "ORD0012",
+                "ORD0014"
+            ],
+            "loyaltyPoints": 917,
+            "preferences": [],
+            "isVIP": false,
+            "registeredAt": "2025-12-27T01:18:00.971891",
+            "totalOrders": 12,
+            "totalSpent": 9170
+        }
+    ]
+}

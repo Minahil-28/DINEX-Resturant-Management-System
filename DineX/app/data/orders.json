@@ -1,0 +1,1014 @@
+{
+    "orders": [
+        {
+            "orderId": "ORD0005",
+            "customerPhone": "03704018969",
+            "customerName": "Yusra Shahid",
+            "customerEmail": "syusra841@gmail.com",
+            "deliveryAddress": "uet lahore",
+            "items": [
+                {
+                    "id": 106,
+                    "name": "Caesar Salad",
+                    "price": 200,
+                    "quantity": 1,
+                    "image": "https://images.unsplash.com/photo-1546069901-ba9599a7e63c?w=400&h=300&fit=crop"
+                },
+                {
+                    "id": 116,
+                    "name": "Cheesecake",
+                    "price": 180,
+                    "quantity": 1,
+                    "image": "https://images.unsplash.com/photo-1533134486753-c833f0ed4866?w=400&h=300&fit=crop"
+                }
+            ],
+            "subtotal": 380,
+            "deliveryFee": 50,
+            "total": 430,
+            "priority": 3,
+            "orderType": "regular",
+            "status": "delivered",
+            "kitchenStatus": "completed",
+            "timestamp": "2026-01-04T00:47:52.214190",
+            "estimatedTime": 44,
+            "completedAt": null,
+            "route": {
+                "path": [
+                    "restaurant",
+                    "younaspura"
+                ],
+                "distance_km": 8.63,
+                "time_minutes": 20.7,
+                "route_names": [
+                    "DineX Restaurant",
+                    "Younaspura"
+                ],
+                "success": true,
+                "nearest_area": "Younaspura"
+            },
+            "cookingStartedAt": "2026-01-04T00:54:52.118045",
+            "cookingCompletedAt": "2026-01-04T00:55:10.184657",
+            "assignedAt": "2026-01-04T00:56:16.921704",
+            "deliveredAt": "2026-01-04T00:56:40.297197",
+            "deliveredBy": "admin@dinex.com"
+        },
+        {
+            "orderId": "ORD0006",
+            "customerPhone": "03704018969",
+            "customerName": "Yusra Shahid",
+            "customerEmail": "syusra841@gmail.com",
+            "deliveryAddress": "khadija hall uet lahore",
+            "items": [
+                {
+                    "id": 112,
+                    "name": "Nachos Supreme",
+                    "price": 280,
+                    "quantity": 1,
+                    "image": "https://images.unsplash.com/photo-1513456852971-30c0b8199d4d?w=400&h=300&fit=crop"
+                },
+                {
+                    "id": 117,
+                    "name": "Spaghetti Carbonara",
+                    "price": 380,
+                    "quantity": 1,
+                    "image": "https://images.unsplash.com/photo-1612874742237-6526221588e3?w=400&h=300&fit=crop"
+                }
+            ],
+            "subtotal": 660,
+            "deliveryFee": 50,
+            "total": 710,
+            "priority": 3,
+            "orderType": "regular",
+            "status": "delivered",
+            "kitchenStatus": "completed",
+            "timestamp": "2026-01-04T00:48:54.495684",
+            "estimatedTime": 44,
+            "completedAt": null,
+            "route": {
+                "path": [
+                    "restaurant",
+                    "younaspura"
+                ],
+                "distance_km": 8.72,
+                "time_minutes": 20.9,
+                "route_names": [
+                    "DineX Restaurant",
+                    "Younaspura"
+                ],
+                "success": true,
+                "nearest_area": "Younaspura"
+            },
+            "cookingStartedAt": "2026-01-04T00:54:54.668680",
+            "cookingCompletedAt": "2026-01-04T00:55:19.142609",
+            "assignedAt": "2026-01-04T00:56:22.614479",
+            "deliveredAt": "2026-01-04T00:56:45.246289",
+            "deliveredBy": "admin@dinex.com"
+        },
+        {
+            "orderId": "ORD0007",
+            "customerPhone": "03704018969",
+            "customerName": "Yusra Shahid",
+            "customerEmail": "syusra841@gmail.com",
+            "deliveryAddress": "lecture threater uet lahore",
+            "items": [
+                {
+                    "id": 112,
+                    "name": "Nachos Supreme",
+                    "price": 280,
+                    "quantity": 1,
+                    "image": "https://images.unsplash.com/photo-1513456852971-30c0b8199d4d?w=400&h=300&fit=crop"
+                },
+                {
+                    "id": 117,
+                    "name": "Spaghetti Carbonara",
+                    "price": 380,
+                    "quantity": 1,
+                    "image": "https://images.unsplash.com/photo-1612874742237-6526221588e3?w=400&h=300&fit=crop"
+                }
+            ],
+            "subtotal": 660,
+            "deliveryFee": 50,
+            "total": 710,
+            "priority": 3,
+            "orderType": "regular",
+            "status": "delivered",
+            "kitchenStatus": "completed",
+            "timestamp": "2026-01-04T00:52:38.436139",
+            "estimatedTime": 44,
+            "completedAt": null,
+            "route": {
+                "path": [
+                    "restaurant",
+                    "younaspura"
+                ],
+                "distance_km": 8.7,
+                "time_minutes": 20.9,
+                "route_names": [
+                    "DineX Restaurant",
+                    "Younaspura"
+                ],
+                "success": true,
+                "nearest_area": "Younaspura"
+            },
+            "cookingStartedAt": "2026-01-04T00:54:56.696314",
+            "cookingCompletedAt": "2026-01-04T00:55:21.725246",
+            "assignedAt": "2026-01-04T00:56:24.583802",
+            "deliveredAt": "2026-01-04T00:56:48.820854",
+            "deliveredBy": "admin@dinex.com"
+        },
+        {
+            "orderId": "ORD0008",
+            "customerPhone": "03704018969",
+            "customerName": "Yusra Shahid",
+            "customerEmail": "syusra841@gmail.com",
+            "deliveryAddress": "House # 8a street # 9 younaspura baghbanpura Lahore",
+            "items": [
+                {
+                    "id": 113,
+                    "name": "BBQ Ribs",
+                    "price": 550,
+                    "quantity": 1,
+                    "image": "https://images.unsplash.com/photo-1544025162-d76694265947?w=400&h=300&fit=crop"
+                },
+                {
+                    "id": 116,
+                    "name": "Cheesecake",
+                    "price": 180,
+                    "quantity": 1,
+                    "image": "https://images.unsplash.com/photo-1533134486753-c833f0ed4866?w=400&h=300&fit=crop"
+                },
+                {
+                    "id": 117,
+                    "name": "Spaghetti Carbonara",
+                    "price": 380,
+                    "quantity": 1,
+                    "image": "https://images.unsplash.com/photo-1612874742237-6526221588e3?w=400&h=300&fit=crop"
+                },
+                {
+                    "id": 112,
+                    "name": "Nachos Supreme",
+                    "price": 280,
+                    "quantity": 1,
+                    "image": "https://images.unsplash.com/photo-1513456852971-30c0b8199d4d?w=400&h=300&fit=crop"
+                },
+                {
+                    "id": 115,
+                    "name": "Iced Coffee",
+                    "price": 130,
+                    "quantity": 2,
+                    "image": "https://images.unsplash.com/photo-1517487881594-2787fef5ebf7?w=400&h=300&fit=crop"
+                },
+                {
+                    "id": 106,
+                    "name": "Caesar Salad",
+                    "price": 200,
+                    "quantity": 1,
+                    "image": "https://images.unsplash.com/photo-1546069901-ba9599a7e63c?w=400&h=300&fit=crop"
+                }
+            ],
+            "subtotal": 1850,
+            "deliveryFee": 50,
+            "total": 1900,
+            "priority": 3,
+            "orderType": "regular",
+            "status": "delivered",
+            "kitchenStatus": "completed",
+            "timestamp": "2026-01-04T13:28:25.005770",
+            "estimatedTime": 46,
+            "completedAt": null,
+            "route": {
+                "path": [
+                    "restaurant",
+                    "younaspura"
+                ],
+                "distance_km": 9.69,
+                "time_minutes": 23.3,
+                "route_names": [
+                    "DineX Restaurant",
+                    "Younaspura"
+                ],
+                "success": true,
+                "nearest_area": "Younaspura"
+            },
+            "cookingStartedAt": "2026-01-05T02:02:22.981523",
+            "cookingCompletedAt": "2026-01-05T11:20:31.693879",
+            "assignedAt": "2026-01-05T11:21:05.911451",
+            "deliveredAt": "2026-01-05T11:21:27.259278",
+            "deliveredBy": "admin@dinex.com"
+        },
+        {
+            "orderId": "ORD0009",
+            "customerPhone": "03704018969",
+            "customerName": "Yusra Shahid",
+            "customerEmail": "syusra841@gmail.com",
+            "deliveryAddress": "House # 8a street # 9 younaspura baghbanpura Lahore",
+            "items": [
+                {
+                    "id": 115,
+                    "name": "Iced Coffee",
+                    "price": 130,
+                    "quantity": 1,
+                    "image": "https://images.unsplash.com/photo-1517487881594-2787fef5ebf7?w=400&h=300&fit=crop"
+                },
+                {
+                    "id": 106,
+                    "name": "Caesar Salad",
+                    "price": 200,
+                    "quantity": 1,
+                    "image": "https://images.unsplash.com/photo-1546069901-ba9599a7e63c?w=400&h=300&fit=crop"
+                }
+            ],
+            "subtotal": 330,
+            "deliveryFee": 50,
+            "total": 380,
+            "priority": 3,
+            "orderType": "regular",
+            "status": "delivered",
+            "kitchenStatus": "completed",
+            "timestamp": "2026-01-05T01:01:40.595086",
+            "estimatedTime": 46,
+            "completedAt": null,
+            "route": {
+                "path": [
+                    "restaurant",
+                    "younaspura"
+                ],
+                "distance_km": 9.69,
+                "time_minutes": 23.3,
+                "route_names": [
+                    "DineX Restaurant",
+                    "Younaspura"
+                ],
+                "success": true,
+                "nearest_area": "Younaspura"
+            },
+            "cookingStartedAt": "2026-01-05T02:02:30.863938",
+            "cookingCompletedAt": "2026-01-05T11:20:33.598414",
+            "assignedAt": "2026-01-05T11:21:07.353158",
+            "deliveredAt": "2026-01-05T11:21:30.850997",
+            "deliveredBy": "admin@dinex.com"
+        },
+        {
+            "orderId": "ORD0010",
+            "customerPhone": "03704018969",
+            "customerName": "Yusra Shahid",
+            "customerEmail": "syusra841@gmail.com",
+            "deliveryAddress": "House # 8a street # 9 younaspura baghbanpura Lahore",
+            "items": [
+                {
+                    "id": 106,
+                    "name": "Caesar Salad",
+                    "price": 200,
+                    "quantity": 1,
+                    "image": "https://images.unsplash.com/photo-1546069901-ba9599a7e63c?w=400&h=300&fit=crop"
+                }
+            ],
+            "subtotal": 200,
+            "deliveryFee": 50,
+            "total": 250,
+            "priority": 3,
+            "orderType": "regular",
+            "status": "delivered",
+            "kitchenStatus": "completed",
+            "timestamp": "2026-01-05T02:01:45.434320",
+            "estimatedTime": 46,
+            "completedAt": null,
+            "route": {
+                "path": [
+                    "restaurant",
+                    "younaspura"
+                ],
+                "distance_km": 9.73,
+                "time_minutes": 23.4,
+                "route_names": [
+                    "DineX Restaurant",
+                    "Younaspura"
+                ],
+                "success": true,
+                "nearest_area": "Younaspura"
+            },
+            "cookingStartedAt": "2026-01-05T02:02:33.777851",
+            "cookingCompletedAt": "2026-01-05T02:06:13.903624",
+            "assignedAt": "2026-01-05T02:06:34.221934",
+            "deliveredAt": "2026-01-05T02:06:55.539071",
+            "deliveredBy": "admin@dinex.com"
+        },
+        {
+            "orderId": "ORD0011",
+            "customerPhone": "03704018969",
+            "customerName": "Yusra Shahid",
+            "customerEmail": "syusra841@gmail.com",
+            "deliveryAddress": "House # 8a street # 9 younaspura baghbanpura Lahore",
+            "items": [
+                {
+                    "id": 106,
+                    "name": "Caesar Salad",
+                    "price": 200,
+                    "quantity": 1,
+                    "image": "https://images.unsplash.com/photo-1546069901-ba9599a7e63c?w=400&h=300&fit=crop"
+                }
+            ],
+            "subtotal": 200,
+            "deliveryFee": 50,
+            "total": 250,
+            "priority": 3,
+            "orderType": "regular",
+            "status": "delivered",
+            "kitchenStatus": "completed",
+            "timestamp": "2026-01-05T02:12:24.698600",
+            "estimatedTime": 46,
+            "completedAt": null,
+            "route": {
+                "path": [
+                    "restaurant",
+                    "younaspura"
+                ],
+                "distance_km": 9.73,
+                "time_minutes": 23.4,
+                "route_names": [
+                    "DineX Restaurant",
+                    "Younaspura"
+                ],
+                "success": true,
+                "nearest_area": "Younaspura"
+            },
+            "cookingStartedAt": "2026-01-05T02:12:57.250169",
+            "cookingCompletedAt": "2026-01-05T02:13:15.217636",
+            "assignedAt": "2026-01-05T02:13:31.283111",
+            "deliveredAt": "2026-01-05T02:13:45.328733",
+            "deliveredBy": "admin@dinex.com"
+        },
+        {
+            "orderId": "ORD0012",
+            "customerPhone": "03704018969",
+            "customerName": "Yusra Shahid",
+            "customerEmail": "syusra841@gmail.com",
+            "deliveryAddress": "House # 8a street # 9 younaspura baghbanpura Lahore",
+            "items": [
+                {
+                    "id": 106,
+                    "name": "Caesar Salad",
+                    "price": 200,
+                    "quantity": 1,
+                    "image": "https://images.unsplash.com/photo-1546069901-ba9599a7e63c?w=400&h=300&fit=crop"
+                }
+            ],
+            "subtotal": 200,
+            "deliveryFee": 50,
+            "total": 250,
+            "priority": 3,
+            "orderType": "regular",
+            "status": "delivered",
+            "kitchenStatus": "completed",
+            "timestamp": "2026-01-05T02:14:32.516599",
+            "estimatedTime": 46,
+            "completedAt": null,
+            "route": {
+                "path": [
+                    "restaurant",
+                    "younaspura"
+                ],
+                "distance_km": 9.620000000000001,
+                "time_minutes": 23.1,
+                "route_names": [
+                    "DineX Restaurant",
+                    "Younaspura"
+                ],
+                "success": true,
+                "nearest_area": "Younaspura"
+            },
+            "cookingStartedAt": "2026-01-05T02:16:02.019674",
+            "cookingCompletedAt": "2026-01-05T02:18:28.003751",
+            "assignedAt": "2026-01-05T08:56:06.519963",
+            "deliveredAt": "2026-01-05T08:56:23.400063",
+            "deliveredBy": "admin@dinex.com"
+        },
+        {
+            "orderId": "ORD0013",
+            "customerPhone": "03000000000",
+            "customerName": "Yusra Shahid",
+            "customerEmail": "admin@dinex.com",
+            "deliveryAddress": "House # 8a street # 9 younaspura baghbanpura Lahore",
+            "items": [
+                {
+                    "id": 102,
+                    "name": "Pepperoni Pizza",
+                    "price": 800,
+                    "quantity": 2,
+                    "image": "https://images.unsplash.com/photo-1565299624946-b28f40a0ae38?w=400&h=300&fit=crop"
+                }
+            ],
+            "subtotal": 1600,
+            "deliveryFee": 50,
+            "total": 1650,
+            "priority": 3,
+            "orderType": "regular",
+            "status": "delivered",
+            "kitchenStatus": "completed",
+            "timestamp": "2026-01-05T02:21:43.607594",
+            "estimatedTime": 46,
+            "completedAt": null,
+            "route": {
+                "path": [
+                    "restaurant",
+                    "younaspura"
+                ],
+                "distance_km": 9.66,
+                "time_minutes": 23.2,
+                "route_names": [
+                    "DineX Restaurant",
+                    "Younaspura"
+                ],
+                "success": true,
+                "nearest_area": "Younaspura"
+            },
+            "cookingStartedAt": "2026-01-05T11:20:21.394579",
+            "cookingCompletedAt": "2026-01-05T11:20:42.460332",
+            "assignedAt": "2026-01-05T11:21:11.864401",
+            "deliveredAt": "2026-01-05T11:21:49.932656",
+            "deliveredBy": "admin@dinex.com"
+        },
+        {
+            "orderId": "ORD0014",
+            "customerPhone": "03704018969",
+            "customerName": "Yusra Shahid",
+            "customerEmail": "syusra841@gmail.com",
+            "deliveryAddress": "House # 8a street # 9 younaspura baghbanpura Lahore",
+            "items": [
+                {
+                    "id": 102,
+                    "name": "Pepperoni Pizza",
+                    "price": 800,
+                    "quantity": 1,
+                    "image": "https://images.unsplash.com/photo-1565299624946-b28f40a0ae38?w=400&h=300&fit=crop",
+                    "position_in_cart": 0
+                },
+                {
+                    "id": 117,
+                    "name": "Spaghetti Carbonara",
+                    "price": 380,
+                    "quantity": 1,
+                    "image": "https://images.unsplash.com/photo-1612874742237-6526221588e3?w=400&h=300&fit=crop",
+                    "position_in_cart": 1
+                }
+            ],
+            "subtotal": 1180,
+            "deliveryFee": 50,
+            "total": 1230,
+            "priority": 3,
+            "orderType": "regular",
+            "status": "delivered",
+            "kitchenStatus": "completed",
+            "timestamp": "2026-01-05T02:38:29.254156",
+            "estimatedTime": 46,
+            "completedAt": null,
+            "route": {
+                "path": [
+                    "restaurant",
+                    "younaspura"
+                ],
+                "distance_km": 9.73,
+                "time_minutes": 23.4,
+                "route_names": [
+                    "DineX Restaurant",
+                    "Younaspura"
+                ],
+                "success": true,
+                "nearest_area": "Younaspura"
+            },
+            "cookingStartedAt": "2026-01-05T11:20:24.276111",
+            "cookingCompletedAt": "2026-01-05T11:20:44.239294",
+            "assignedAt": "2026-01-05T11:21:13.536710",
+            "deliveredAt": "2026-01-05T11:21:56.594187",
+            "deliveredBy": "admin@dinex.com"
+        },
+        {
+            "orderId": "ORD0015",
+            "customerPhone": "03015920315",
+            "customerName": "Aroosha Arif",
+            "customerEmail": "aroosha@gmail.com",
+            "deliveryAddress": "Baghbanpura G T Road, UET Lahore, New Girls Hostel",
+            "items": [
+                {
+                    "id": 101,
+                    "name": "Classic Burger",
+                    "price": 250,
+                    "quantity": 1,
+                    "image": "https://images.unsplash.com/photo-1568901346375-23c9450c58cd?w=400&h=300&fit=crop",
+                    "position_in_cart": 0
+                },
+                {
+                    "id": 103,
+                    "name": "Coca Cola",
+                    "price": 100,
+                    "quantity": 1,
+                    "image": "https://images.unsplash.com/photo-1554866585-cd94860890b7?w=400&h=300&fit=crop",
+                    "position_in_cart": 1
+                }
+            ],
+            "subtotal": 350,
+            "deliveryFee": 50,
+            "total": 400,
+            "priority": 2,
+            "orderType": "express",
+            "status": "delivered",
+            "kitchenStatus": "completed",
+            "timestamp": "2026-01-05T10:06:22.425637",
+            "estimatedTime": 41,
+            "completedAt": null,
+            "route": {
+                "path": [
+                    "restaurant",
+                    "younaspura"
+                ],
+                "distance_km": 9.71,
+                "time_minutes": 23.3,
+                "route_names": [
+                    "DineX Restaurant",
+                    "Younaspura"
+                ],
+                "success": true,
+                "nearest_area": "Younaspura"
+            },
+            "cookingStartedAt": "2026-01-05T11:20:25.881413",
+            "cookingCompletedAt": "2026-01-05T11:20:45.938463",
+            "assignedAt": "2026-01-05T11:21:04.557121",
+            "deliveredAt": "2026-01-05T11:22:00.347517",
+            "deliveredBy": "admin@dinex.com"
+        },
+        {
+            "orderId": "ORD0016",
+            "customerPhone": "03015920315",
+            "customerName": "Ahmad Mehmood",
+            "customerEmail": "admin@dinex.com",
+            "deliveryAddress": "Baghbanpura G T Road, UET Lahore, New Girls Hostel",
+            "items": [
+                {
+                    "id": 106,
+                    "name": "Caesar Salad",
+                    "price": 200,
+                    "quantity": 1,
+                    "image": "https://images.unsplash.com/photo-1546069901-ba9599a7e63c?w=400&h=300&fit=crop",
+                    "position_in_cart": 0
+                }
+            ],
+            "subtotal": 200,
+            "deliveryFee": 50,
+            "total": 250,
+            "priority": 1,
+            "orderType": "vip",
+            "status": "delivered",
+            "kitchenStatus": "completed",
+            "timestamp": "2026-01-05T11:19:57.622506",
+            "estimatedTime": 36,
+            "completedAt": null,
+            "route": {
+                "path": [
+                    "restaurant",
+                    "younaspura"
+                ],
+                "distance_km": 9.780000000000001,
+                "time_minutes": 23.5,
+                "route_names": [
+                    "DineX Restaurant",
+                    "Younaspura"
+                ],
+                "success": true,
+                "nearest_area": "Younaspura"
+            },
+            "cookingStartedAt": "2026-01-05T11:20:27.334731",
+            "cookingCompletedAt": "2026-01-05T11:20:47.528358",
+            "assignedAt": "2026-01-05T11:21:02.068275",
+            "deliveredAt": "2026-01-05T11:21:36.113908",
+            "deliveredBy": "admin@dinex.com"
+        },
+        {
+            "orderId": "ORD0017",
+            "customerPhone": "03015920315",
+            "customerName": "Minahil Mehmood",
+            "customerEmail": "admin@dinex.com",
+            "deliveryAddress": "Baghbanpura G T Road, UET Lahore, New Girls Hostel",
+            "items": [
+                {
+                    "id": 106,
+                    "name": "Caesar Salad",
+                    "price": 200,
+                    "quantity": 1,
+                    "image": "https://images.unsplash.com/photo-1546069901-ba9599a7e63c?w=400&h=300&fit=crop",
+                    "position_in_cart": 0
+                }
+            ],
+            "subtotal": 200,
+            "deliveryFee": 50,
+            "total": 250,
+            "priority": 2,
+            "orderType": "express",
+            "status": "delivered",
+            "kitchenStatus": "completed",
+            "timestamp": "2026-01-05T11:25:04.261642",
+            "estimatedTime": 41,
+            "completedAt": null,
+            "route": {
+                "path": [
+                    "restaurant",
+                    "younaspura"
+                ],
+                "distance_km": 9.69,
+                "time_minutes": 23.3,
+                "route_names": [
+                    "DineX Restaurant",
+                    "Younaspura"
+                ],
+                "success": true,
+                "nearest_area": "Younaspura"
+            },
+            "cookingStartedAt": "2026-01-05T11:25:16.348206",
+            "cookingCompletedAt": "2026-01-05T11:25:24.352218",
+            "assignedAt": "2026-01-05T11:25:37.905812",
+            "deliveredAt": "2026-01-05T11:25:45.561033",
+            "deliveredBy": "admin@dinex.com"
+        },
+        {
+            "orderId": "ORD0018",
+            "customerPhone": "03015920319",
+            "customerName": "Rania Mehmood",
+            "customerEmail": "rania@gmail.com",
+            "deliveryAddress": "Johar Towm",
+            "items": [
+                {
+                    "id": 106,
+                    "name": "Caesar Salad",
+                    "price": 200,
+                    "quantity": 1,
+                    "image": "https://images.unsplash.com/photo-1546069901-ba9599a7e63c?w=400&h=300&fit=crop",
+                    "position_in_cart": 0
+                }
+            ],
+            "subtotal": 200,
+            "deliveryFee": 50,
+            "total": 250,
+            "priority": 3,
+            "orderType": "regular",
+            "status": "delivered",
+            "kitchenStatus": "completed",
+            "timestamp": "2026-01-05T11:38:00.757116",
+            "estimatedTime": 44,
+            "completedAt": null,
+            "route": {
+                "path": [
+                    "restaurant",
+                    "johar_town"
+                ],
+                "distance_km": 8.59,
+                "time_minutes": 20.599999999999998,
+                "route_names": [
+                    "DineX Restaurant",
+                    "Johar Town"
+                ],
+                "success": true,
+                "nearest_area": "Johar Town"
+            },
+            "cookingStartedAt": "2026-01-05T11:38:55.594056",
+            "cookingCompletedAt": "2026-01-05T11:39:07.897483",
+            "assignedAt": "2026-01-05T11:39:20.532191",
+            "deliveredAt": "2026-01-05T11:39:27.387168",
+            "deliveredBy": "admin@dinex.com"
+        },
+        {
+            "orderId": "ORD0019",
+            "customerPhone": "03456762315",
+            "customerName": "Samina Tahir",
+            "customerEmail": "samina@gmail.com",
+            "deliveryAddress": "Khadija Hall, Uet Lahore",
+            "items": [
+                {
+                    "id": 101,
+                    "name": "Classic Burger",
+                    "quantity": 1,
+                    "price": 250,
+                    "image": "https://images.unsplash.com/photo-1568901346375-23c9450c58cd?w=400&h=300&fit=crop"
+                }
+            ],
+            "subtotal": 250,
+            "deliveryFee": 50,
+            "total": 300,
+            "priority": 1,
+            "orderType": "vip",
+            "status": "delivered",
+            "kitchenStatus": "completed",
+            "timestamp": "2026-01-05T17:51:42.044785",
+            "estimatedTime": 34,
+            "completedAt": null,
+            "route": {
+                "path": [
+                    "restaurant",
+                    "younaspura"
+                ],
+                "distance_km": 8.67,
+                "time_minutes": 20.8,
+                "route_names": [
+                    "DineX Restaurant",
+                    "Younaspura"
+                ],
+                "success": true,
+                "nearest_area": "Younaspura"
+            },
+            "cookingStartedAt": "2026-01-05T18:05:40.741670",
+            "cookingCompletedAt": "2026-01-05T18:05:47.524196",
+            "assignedAt": "2026-01-05T18:05:58.611611",
+            "deliveredAt": "2026-01-05T18:06:10.552009",
+            "deliveredBy": "admin@dinex.com"
+        },
+        {
+            "orderId": "ORD0020",
+            "customerPhone": "03015921673",
+            "customerName": "Ali Tahir",
+            "customerEmail": "ali@gmail.com",
+            "deliveryAddress": "Khadija Hall , UET Lahore",
+            "items": [
+                {
+                    "id": 101,
+                    "name": "Classic Burger",
+                    "price": 250,
+                    "quantity": 1,
+                    "image": "https://images.unsplash.com/photo-1568901346375-23c9450c58cd?w=400&h=300&fit=crop",
+                    "position_in_cart": 0
+                },
+                {
+                    "id": 103,
+                    "name": "Coca Cola",
+                    "price": 100,
+                    "quantity": 1,
+                    "image": "https://images.unsplash.com/photo-1554866585-cd94860890b7?w=400&h=300&fit=crop",
+                    "position_in_cart": 1
+                }
+            ],
+            "subtotal": 350,
+            "deliveryFee": 50,
+            "total": 400,
+            "priority": 1,
+            "orderType": "vip",
+            "status": "delivered",
+            "kitchenStatus": "completed",
+            "timestamp": "2026-01-06T09:16:44.523974",
+            "estimatedTime": 34,
+            "completedAt": null,
+            "route": {
+                "path": [
+                    "restaurant",
+                    "younaspura"
+                ],
+                "distance_km": 8.69,
+                "time_minutes": 20.9,
+                "route_names": [
+                    "DineX Restaurant",
+                    "Younaspura"
+                ],
+                "success": true,
+                "nearest_area": "Younaspura"
+            },
+            "cookingStartedAt": "2026-01-06T09:24:14.927807",
+            "cookingCompletedAt": "2026-01-06T09:24:26.189018",
+            "assignedAt": "2026-01-06T09:24:48.313618",
+            "deliveredAt": "2026-01-06T09:25:09.306178",
+            "deliveredBy": "admin@dinex.com"
+        },
+        {
+            "orderId": "ORD0021",
+            "customerPhone": "03015920315",
+            "customerName": "Minahil Mehmood",
+            "customerEmail": "ali@gmail.com",
+            "deliveryAddress": "Baghbanpura G T Road, UET Lahore, New Girls Hostel",
+            "items": [
+                {
+                    "id": 104,
+                    "name": "Ice Cream Sundae",
+                    "price": 150,
+                    "quantity": 1,
+                    "image": "https://images.unsplash.com/photo-1563805042-7684c019e1cb?w=400&h=300&fit=crop",
+                    "position_in_cart": 0
+                }
+            ],
+            "subtotal": 150,
+            "deliveryFee": 50,
+            "total": 200,
+            "priority": 3,
+            "orderType": "regular",
+            "status": "delivered",
+            "kitchenStatus": "completed",
+            "timestamp": "2026-01-07T05:39:43.299758",
+            "estimatedTime": 46,
+            "completedAt": null,
+            "route": {
+                "path": [
+                    "restaurant",
+                    "younaspura"
+                ],
+                "distance_km": 9.63,
+                "time_minutes": 23.1,
+                "route_names": [
+                    "DineX Restaurant",
+                    "Younaspura"
+                ],
+                "success": true,
+                "nearest_area": "Younaspura"
+            },
+            "cookingStartedAt": "2026-01-07T05:42:44.395468",
+            "cookingCompletedAt": "2026-01-07T05:42:50.106424",
+            "assignedAt": "2026-01-07T05:43:51.659625",
+            "deliveredAt": "2026-01-07T05:44:34.975020",
+            "deliveredBy": "admin@dinex.com"
+        },
+        {
+            "orderId": "ORD0022",
+            "customerPhone": "03015920315",
+            "customerName": "Rania Mehmood",
+            "customerEmail": "ali@gmail.com",
+            "deliveryAddress": "Baghbanpura G T Road, UET Lahore, New Girls Hostel",
+            "items": [
+                {
+                    "id": 106,
+                    "name": "Caesar Salad",
+                    "price": 200,
+                    "quantity": 1,
+                    "image": "https://images.unsplash.com/photo-1546069901-ba9599a7e63c?w=400&h=300&fit=crop",
+                    "position_in_cart": 0
+                }
+            ],
+            "subtotal": 200,
+            "deliveryFee": 50,
+            "total": 250,
+            "priority": 1,
+            "orderType": "vip",
+            "status": "delivered",
+            "kitchenStatus": "completed",
+            "timestamp": "2026-01-07T05:40:42.930330",
+            "estimatedTime": 36,
+            "completedAt": null,
+            "route": {
+                "path": [
+                    "restaurant",
+                    "younaspura"
+                ],
+                "distance_km": 9.79,
+                "time_minutes": 23.5,
+                "route_names": [
+                    "DineX Restaurant",
+                    "Younaspura"
+                ],
+                "success": true,
+                "nearest_area": "Younaspura"
+            },
+            "cookingStartedAt": "2026-01-07T05:42:46.641814",
+            "cookingCompletedAt": "2026-01-07T05:42:52.682636",
+            "assignedAt": "2026-01-07T05:43:49.396155",
+            "deliveredAt": "2026-01-07T05:44:38.666862",
+            "deliveredBy": "admin@dinex.com"
+        },
+        {
+            "orderId": "ORD0023",
+            "customerPhone": "03015920315",
+            "customerName": "Minahil Mehmood",
+            "customerEmail": "ali@gmail.com",
+            "deliveryAddress": "Gulberg Lahore",
+            "items": [
+                {
+                    "id": 101,
+                    "name": "Classic Burger",
+                    "price": 250,
+                    "quantity": 1,
+                    "image": "https://images.unsplash.com/photo-1568901346375-23c9450c58cd?w=400&h=300&fit=crop",
+                    "position_in_cart": 0
+                },
+                {
+                    "id": 113,
+                    "name": "BBQ Ribs",
+                    "price": 550,
+                    "quantity": 1,
+                    "image": "https://images.unsplash.com/photo-1544025162-d76694265947?w=400&h=300&fit=crop",
+                    "position_in_cart": 1
+                }
+            ],
+            "subtotal": 800,
+            "deliveryFee": 50,
+            "total": 850,
+            "priority": 3,
+            "orderType": "regular",
+            "status": "processing",
+            "kitchenStatus": "completed",
+            "timestamp": "2026-01-07T05:46:28.597091",
+            "estimatedTime": 29,
+            "completedAt": null,
+            "route": {
+                "path": [
+                    "restaurant",
+                    "mm_alam"
+                ],
+                "distance_km": 2.44,
+                "time_minutes": 5.9,
+                "route_names": [
+                    "DineX Restaurant",
+                    "MM Alam Road"
+                ],
+                "success": true,
+                "nearest_area": "MM Alam Road"
+            },
+            "cookingStartedAt": "2026-01-24T07:45:00.621873",
+            "cookingCompletedAt": "2026-01-24T07:45:09.009650"
+        },
+        {
+            "orderId": "ORD0024",
+            "customerPhone": "03015920295",
+            "customerName": "Usman Basit",
+            "customerEmail": "usmanbasit@gmail.com",
+            "deliveryAddress": "Khadija Hall, UET Lahore",
+            "items": [
+                {
+                    "id": 107,
+                    "name": "Margherita Pizza",
+                    "price": 650,
+                    "quantity": 1,
+                    "image": "https://images.unsplash.com/photo-1574071318508-1cdbab80d002?w=400&h=300&fit=crop",
+                    "position_in_cart": 0
+                },
+                {
+                    "id": 103,
+                    "name": "Coca Cola",
+                    "quantity": 1,
+                    "price": 100,
+                    "image": "https://images.unsplash.com/photo-1554866585-cd94860890b7?w=400&h=300&fit=crop"
+                }
+            ],
+            "subtotal": 750,
+            "deliveryFee": 50,
+            "total": 800,
+            "priority": 1,
+            "orderType": "vip",
+            "status": "delivered",
+            "kitchenStatus": "completed",
+            "timestamp": "2026-01-24T07:36:29.159456",
+            "estimatedTime": 34,
+            "completedAt": null,
+            "route": {
+                "path": [
+                    "restaurant",
+                    "younaspura"
+                ],
+                "distance_km": 8.68,
+                "time_minutes": 20.9,
+                "route_names": [
+                    "DineX Restaurant",
+                    "Younaspura"
+                ],
+                "success": true,
+                "nearest_area": "Younaspura"
+            },
+            "cookingStartedAt": "2026-01-24T07:51:28.906781",
+            "cookingCompletedAt": "2026-01-24T07:52:53.108583",
+            "assignedAt": "2026-01-24T07:53:08.507140",
+            "deliveredAt": "2026-01-24T07:53:25.070924",
+            "deliveredBy": "admin@dinex.com"
+        }
+    ],
+    "nextOrderId": 25
+}

@@ -1,0 +1,175 @@
+[
+    {
+        "id": 1,
+        "firstName": "Yusra",
+        "lastName": "Shahid",
+        "email": "syusra841@gmail.com",
+        "phone": "03704018969",
+        "password": "scrypt:32768:8:1$PwWWm9kAf6njPRRL$821e49835a102b166471d007384dfb1924d9c3cf808907972a72df80ead455484c6dfe144fff6d54c80f4b1c1ae56bb2b861e3ce42f8f3dcd0facd072dddcae0",
+        "createdAt": "2025-12-27T01:18:00.970892",
+        "lastLogin": "2026-01-06T08:56:26.196851"
+    },
+    {
+        "id": 2,
+        "firstName": "Yusra",
+        "lastName": "Shahid",
+        "email": "syusra84@gmail.com",
+        "phone": "03230476914",
+        "password": "scrypt:32768:8:1$sKMoEn5ff4x3BYol$b8dfdf9a90e37e72dd0ff5260f87f472fc33c4f59b5ed0f14a60af69b2064142f4bcedf2575ab15e4a993b01d7e346a5fe168f53babbf941c1f724c63f435c8b",
+        "createdAt": "2025-12-27T02:44:58.155776",
+        "lastLogin": null
+    },
+    {
+        "id": 3,
+        "firstName": "lili",
+        "lastName": "lili",
+        "email": "mini6@hotmail.com",
+        "phone": "1234567899",
+        "password": "scrypt:32768:8:1$NCQugS1W9U09Gg0P$f9ef9e85872655401a1383d5d0b203aec7063e1da78acc331afcc401d1e5df3bf53fe0b1eddeeac389f7e6f49891adf0f447d4464f676e8b905982298ca27534",
+        "createdAt": "2025-12-29T11:33:05.548117",
+        "lastLogin": "2026-01-03T17:55:29.651971"
+    },
+    {
+        "id": 4,
+        "firstName": "Admin",
+        "lastName": "User",
+        "email": "admin@dinex.com",
+        "phone": "03000000000",
+        "password": "scrypt:32768:8:1$UjUyJnnMtivNW7lU$1ecd6b34d53b36f2d1ff710313f57ac4f45557392954ef3dcb308a0698761e6c7e1acac3c1e8032cb02bd8c78cad9f3aeeec8321175f2f23e5f0ebb83a6a1657",
+        "role": "super_admin",
+        "createdAt": "2025-12-30T02:15:13.158912",
+        "lastLogin": null
+    },
+    {
+        "id": 5,
+        "firstName": "Minahil",
+        "lastName": "Mehmood",
+        "email": "minahilmehmood315@gmail.com",
+        "phone": "03015920315",
+        "password": "scrypt:32768:8:1$4E1PjasH6fQjyoGv$b4e7d39e5577f4594c6f5c75ce89a425b771728c1b378befcbf0ef1a09ed227eaab73980b4fb1a896b8da1f62832887423e8a76e26ad3ef376e470a2d1b9279f",
+        "role": "customer",
+        "createdAt": "2025-12-30T02:41:08.954810",
+        "lastLogin": "2026-01-03T19:17:39.127717"
+    },
+    {
+        "id": 6,
+        "firstName": "Lali",
+        "lastName": "Mlali",
+        "email": "lalimlali@gmail.com",
+        "phone": "03006762315",
+        "password": "scrypt:32768:8:1$cmvBEOLSBKDCpPyi$56cb7e39bd697e8fd18f1004c976e9114e3691bb62271825b82dca054076cca3a8403fae5fcd1701f4d4b2b2dd48cb4a93d09ee408100ccd541612cb7320c1d2",
+        "role": "customer",
+        "createdAt": "2026-01-01T21:10:53.962619",
+        "lastLogin": null
+    },
+    {
+        "id": 7,
+        "firstName": "Iqra",
+        "lastName": "Akbar",
+        "email": "iqraakbar@gmail.com",
+        "phone": "03015920317",
+        "password": "scrypt:32768:8:1$5RGyoGYsjY8slIlw$e2b20dedf0b7642492a3e086f346caff8044342d166990ad459784ad1ffe62abaf0daf11747f0f1957ab08d1f78f8b08b2eaefb6ff6f66ab72cda8dbb7ade40b",
+        "role": "customer",
+        "createdAt": "2026-01-01T21:22:24.281764",
+        "lastLogin": null
+    },
+    {
+        "id": 8,
+        "firstName": "Aroosha",
+        "lastName": "Arif",
+        "email": "aroosha@gmail.com",
+        "phone": "03126762315",
+        "password": "scrypt:32768:8:1$QANdCMtRGx7rAwMd$939c23ad3755ec89828c804deb1516d56330c00641c5011dc7115fdbd10d61e41ac61c8941f9a5b5fad41e50388f0b0c0503318f5430968c13721fbe668c1aef",
+        "role": "customer",
+        "createdAt": "2026-01-01T21:35:27.655523",
+        "lastLogin": "2026-01-06T08:25:48.364831"
+    },
+    {
+        "id": 9,
+        "firstName": "Ayesha",
+        "lastName": "Sadeeqa",
+        "email": "ayesha@gmail.com",
+        "phone": "03006762467",
+        "password": "scrypt:32768:8:1$GIEcFus7HTqJjuyw$1fa6c5b8ddf996cb81aa07beb4280b849328a60512e6e01269895142535b6731a8e3ae77f98bfa351ee33c1da72fad95877960221a6399fa53ecd760e67e5674",
+        "role": "customer",
+        "createdAt": "2026-01-01T21:39:15.672861",
+        "lastLogin": "2026-01-01T22:09:57.066690"
+    },
+    {
+        "id": 10,
+        "firstName": "Rania",
+        "lastName": "Mehmood",
+        "email": "rania@gmail.com",
+        "phone": "03015920319",
+        "password": "scrypt:32768:8:1$fYM4ohw7iqYmqiHd$8ca25a4102f894af2d07a7ac2e92cc80cc2aefafc7e86d0bcf12b5107098d5fa90fee245db75932d24357f03e0735f7b99bcc6aa5a185f6002fc9bb977136409",
+        "role": "customer",
+        "createdAt": "2026-01-03T17:32:45.700642",
+        "lastLogin": "2026-01-05T11:37:37.581578"
+    },
+    {
+        "id": 11,
+        "firstName": "Ahmad12",
+        "lastName": "Mehmood",
+        "email": "ahmad@gmail.com",
+        "phone": "03009862315",
+        "password": "scrypt:32768:8:1$exx9lCzVuI8oV9re$aae94cb7a13d4354f4b75470c625e129babbae233ce1a1283f72df18e7294470c8ad0772aef862bbc6365885c46038dbc2e9db6b734b77fddcd4b9ec4d9cd3d9",
+        "role": "customer",
+        "createdAt": "2026-01-03T18:31:56.499693",
+        "lastLogin": null
+    },
+    {
+        "id": 12,
+        "firstName": "Ahmad",
+        "lastName": "Mehmood",
+        "email": "ahmad123@gmail.com",
+        "phone": "03015924515",
+        "password": "scrypt:32768:8:1$9brPfouh5PePiXUi$c1fdf24a306e9d508f743bc3c498950170e0caa08773ca8db00913a233d97d85c738f1837b4a7b5ebd5a0256989f7bf48947c6b5a7d3b501ef36a004c7c4c84f",
+        "role": "customer",
+        "createdAt": "2026-01-03T21:27:25.893917",
+        "lastLogin": null
+    },
+    {
+        "id": 13,
+        "firstName": "Madiha",
+        "lastName": "Mehmood",
+        "email": "madiha@gmail.com",
+        "phone": "03156762315",
+        "password": "scrypt:32768:8:1$M3XddTP6WHeV1NTf$d4a886cbe28546adf817400912803ee0a841f7e1e5e9182dc10156e0d6e5bd9e168f0d075b4b7e0a90502d05380ffdb66ff9e958116c8a1a4890adac2dc12eac",
+        "role": "customer",
+        "createdAt": "2026-01-05T17:41:43.278935",
+        "lastLogin": null
+    },
+    {
+        "id": 14,
+        "firstName": "Samina",
+        "lastName": "Tahir",
+        "email": "samina@gmail.com",
+        "phone": "03456762315",
+        "password": "scrypt:32768:8:1$F4LtXcG2ZUsl22xf$823641c7d5f6a0f5cb2e11635d6e0ee8d7dc4ff7f888678e6351d6f823e217ed002d155597409899fa96a65fa59db80439eee06b40e69307abb193fd233f060c",
+        "role": "customer",
+        "createdAt": "2026-01-05T17:50:53.517535",
+        "lastLogin": null
+    },
+    {
+        "id": 15,
+        "firstName": "Ali",
+        "lastName": "Tahir",
+        "email": "ali@gmail.com",
+        "phone": "03015921673",
+        "password": "scrypt:32768:8:1$v1mZUm4zsc516tRw$42be6fc21c35aaa7bc86d960f416d6459ac238e0bfb60e2455e276f25221e05f00cad06b36bbd9954cd2a2a489aa853d417ac28ed8da26c3d85b5b31ca6bfec9",
+        "role": "customer",
+        "createdAt": "2026-01-05T18:03:41.250514",
+        "lastLogin": "2026-03-17T17:26:23.522914"
+    },
+    {
+        "id": 16,
+        "firstName": "Usman",
+        "lastName": "Basit",
+        "email": "usmanbasit@gmail.com",
+        "phone": "03015920295",
+        "password": "scrypt:32768:8:1$GDCTSF33dfTfSwQg$3074305c76e260c3035d22931747a6305bc800670f78e321eedcf3d27fd0dec8b8e80959028ad5cb25455764463416268ce513d8cd6d634cfc08ab7bfb5193a5",
+        "role": "customer",
+        "createdAt": "2026-01-24T07:30:14.629785",
+        "lastLogin": null
+    }
+]

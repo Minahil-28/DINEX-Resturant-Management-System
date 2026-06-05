@@ -1,0 +1,681 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>About Us - DineX</title>
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700;800;900&display=swap" rel="stylesheet">
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        /* Floating Food Doodles */
+        .food-doodles {
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            pointer-events: none;
+            z-index: 1;
+            overflow: hidden;
+        }
+
+        .doodle {
+            position: absolute;
+            font-size: 3rem;
+            opacity: 0.08;
+            animation: float 20s infinite ease-in-out;
+        }
+
+        .doodle-1 { top: 10%; left: 10%; animation-delay: 0s; font-size: 4rem; }
+        .doodle-2 { top: 20%; right: 15%; animation-delay: 2s; font-size: 3.5rem; }
+        .doodle-3 { top: 50%; left: 5%; animation-delay: 4s; font-size: 3rem; }
+        .doodle-4 { bottom: 20%; right: 10%; animation-delay: 6s; font-size: 3.5rem; }
+        .doodle-5 { bottom: 15%; left: 15%; animation-delay: 8s; font-size: 4rem; }
+        .doodle-6 { top: 60%; right: 5%; animation-delay: 10s; font-size: 3rem; }
+        .doodle-7 { top: 30%; left: 25%; animation-delay: 12s; font-size: 3.5rem; }
+        .doodle-8 { bottom: 40%; left: 40%; animation-delay: 14s; font-size: 3rem; }
+        .doodle-9 { top: 70%; right: 25%; animation-delay: 16s; font-size: 3.5rem; }
+        .doodle-10 { bottom: 60%; right: 35%; animation-delay: 18s; font-size: 3rem; }
+        .doodle-11 { top: 40%; left: 50%; animation-delay: 3s; font-size: 3.5rem; }
+        .doodle-12 { bottom: 50%; left: 60%; animation-delay: 7s; font-size: 3rem; }
+
+        @keyframes float {
+            0%, 100% {
+                transform: translateY(0px);
+            }
+            50% {
+                transform: translateY(-20px);
+            }
+        }
+
+        :root {
+            --primary: #ff6b35;
+            --primary-dark: #e55a2b;
+            --gradient-start: #ff6b35;
+            --gradient-end: #ff4081;
+            --dark-bg: #0f0f1e;
+            --text-primary: #ffffff;
+            --text-secondary: rgba(255, 255, 255, 0.7);
+            --text-muted: rgba(255, 255, 255, 0.5);
+            --glass-bg: rgba(255, 255, 255, 0.05);
+            --glass-border: rgba(255, 255, 255, 0.1);
+            --glass-shadow: 0 8px 32px rgba(0, 0, 0, 0.37);
+            --radius-lg: 16px;
+            --radius-xl: 24px;
+            --transition-base: 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+        }
+
+        body {
+            font-family: 'Poppins', sans-serif;
+            background: linear-gradient(135deg, #0f0f1e 0%, #1a0b2e 50%, #0f0f1e 100%);
+            color: var(--text-primary);
+            line-height: 1.6;
+            min-height: 100vh;
+            overflow-x: hidden;
+        }
+
+        /* Navigation */
+        nav {
+            position: fixed;
+            top: 0;
+            left: 0;
+            right: 0;
+            z-index: 1000;
+            padding: 1rem 0;
+            background: rgba(15, 15, 30, 0.8);
+            backdrop-filter: blur(20px);
+            border-bottom: 1px solid var(--glass-border);
+        }
+
+        .nav-container {
+            max-width: 1400px;
+            margin: 0 auto;
+            padding: 0 2rem;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+        }
+
+        .logo-text {
+            font-size: 2rem;
+            font-weight: 800;
+            background: linear-gradient(135deg, var(--gradient-start), var(--gradient-end));
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+            background-clip: text;
+            cursor: pointer;
+            text-decoration: none;
+        }
+
+        .btn-home {
+            padding: 0.75rem 1.5rem;
+            background: var(--glass-bg);
+            backdrop-filter: blur(20px);
+            border: 1px solid var(--glass-border);
+            border-radius: 12px;
+            color: var(--text-primary);
+            text-decoration: none;
+            font-weight: 600;
+            transition: all var(--transition-base);
+        }
+
+        .btn-home:hover {
+            background: rgba(255, 255, 255, 0.1);
+            border-color: var(--primary);
+            transform: translateY(-2px);
+        }
+
+        /* Hero Section */
+        .about-hero {
+            padding: 150px 2rem 100px;
+            text-align: center;
+            position: relative;
+        }
+
+        .about-hero::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            right: 0;
+            bottom: 0;
+            background: radial-gradient(circle at 50% 50%, rgba(255, 107, 53, 0.1) 0%, transparent 70%);
+            pointer-events: none;
+        }
+
+        .about-hero h1 {
+            font-size: 4rem;
+            font-weight: 900;
+            margin-bottom: 1.5rem;
+            position: relative;
+            z-index: 1;
+        }
+
+        .gradient-text {
+            background: linear-gradient(135deg, var(--gradient-start), var(--gradient-end));
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+            background-clip: text;
+        }
+
+        .about-hero p {
+            font-size: 1.25rem;
+            color: var(--text-secondary);
+            max-width: 700px;
+            margin: 0 auto;
+            position: relative;
+            z-index: 1;
+        }
+
+        /* Container */
+        .container {
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 0 2rem;
+        }
+
+        /* Glass Card */
+        .glass-card {
+            background: var(--glass-bg);
+            backdrop-filter: blur(20px);
+            -webkit-backdrop-filter: blur(20px);
+            border: 1px solid var(--glass-border);
+            box-shadow: var(--glass-shadow);
+            border-radius: var(--radius-xl);
+            padding: 3rem;
+            margin-bottom: 3rem;
+            transition: all var(--transition-base);
+        }
+
+        .glass-card:hover {
+            transform: translateY(-5px);
+            box-shadow: 0 20px 60px rgba(255, 107, 53, 0.2);
+        }
+
+        /* Story Section */
+        .story-section {
+            padding: 4rem 0;
+        }
+
+        .story-section h2 {
+            font-size: 2.5rem;
+            font-weight: 800;
+            margin-bottom: 2rem;
+            text-align: center;
+        }
+
+        .story-content {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 3rem;
+            align-items: center;
+        }
+
+        .story-text p {
+            font-size: 1.1rem;
+            color: var(--text-secondary);
+            margin-bottom: 1.5rem;
+            line-height: 1.8;
+        }
+
+        .story-image {
+            border-radius: var(--radius-xl);
+            overflow: hidden;
+            box-shadow: 0 20px 60px rgba(255, 107, 53, 0.3);
+        }
+
+        .story-image img {
+            width: 100%;
+            height: auto;
+            display: block;
+        }
+
+        /* Features Grid */
+        .features-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+            gap: 2rem;
+            margin-top: 3rem;
+        }
+
+        .feature-card {
+            background: var(--glass-bg);
+            backdrop-filter: blur(20px);
+            border: 1px solid var(--glass-border);
+            border-radius: var(--radius-xl);
+            padding: 2.5rem;
+            text-align: center;
+            transition: all var(--transition-base);
+        }
+
+        .feature-card:hover {
+            transform: translateY(-10px);
+            box-shadow: 0 20px 60px rgba(255, 107, 53, 0.3);
+        }
+
+        .feature-icon {
+            width: 80px;
+            height: 80px;
+            margin: 0 auto 1.5rem;
+            border-radius: var(--radius-lg);
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-size: 2.5rem;
+            background: linear-gradient(135deg, var(--gradient-start), var(--gradient-end));
+        }
+
+        .feature-card h3 {
+            font-size: 1.5rem;
+            margin-bottom: 1rem;
+            font-weight: 700;
+        }
+
+        .feature-card p {
+            color: var(--text-secondary);
+            line-height: 1.7;
+        }
+
+        /* Team Section */
+        .team-section {
+            padding: 4rem 0;
+            text-align: center;
+        }
+
+        .team-section h2 {
+            font-size: 2.5rem;
+            font-weight: 800;
+            margin-bottom: 3rem;
+        }
+
+        .team-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+            gap: 2rem;
+            max-width: 800px;
+            margin: 0 auto;
+        }
+
+        .team-card {
+            background: var(--glass-bg);
+            backdrop-filter: blur(20px);
+            border: 1px solid var(--glass-border);
+            border-radius: var(--radius-xl);
+            padding: 2.5rem;
+            transition: all var(--transition-base);
+        }
+
+        .team-card:hover {
+            transform: translateY(-10px);
+            box-shadow: 0 20px 60px rgba(255, 107, 53, 0.3);
+        }
+
+        .team-avatar {
+            width: 120px;
+            height: 120px;
+            margin: 0 auto 1.5rem;
+            border-radius: 50%;
+            background: linear-gradient(135deg, var(--gradient-start), var(--gradient-end));
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-size: 3rem;
+            font-weight: 800;
+            color: white;
+        }
+
+        .team-card h3 {
+            font-size: 1.5rem;
+            margin-bottom: 0.5rem;
+            font-weight: 700;
+        }
+
+        .team-card .role {
+            color: var(--primary);
+            font-weight: 600;
+            margin-bottom: 0.5rem;
+        }
+
+        .team-card .id {
+            color: var(--text-muted);
+            font-size: 0.9rem;
+        }
+
+        /* Values Section */
+        .values-section {
+            padding: 4rem 0;
+        }
+
+        .values-section h2 {
+            font-size: 2.5rem;
+            font-weight: 800;
+            margin-bottom: 3rem;
+            text-align: center;
+        }
+
+        .values-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+            gap: 2rem;
+        }
+
+        .value-card {
+            background: var(--glass-bg);
+            backdrop-filter: blur(20px);
+            border: 1px solid var(--glass-border);
+            border-radius: var(--radius-xl);
+            padding: 2rem;
+            text-align: center;
+            transition: all var(--transition-base);
+        }
+
+        .value-card:hover {
+            transform: translateY(-5px);
+            border-color: var(--primary);
+        }
+
+        .value-icon {
+            font-size: 3rem;
+            margin-bottom: 1rem;
+        }
+
+        .value-card h3 {
+            font-size: 1.25rem;
+            margin-bottom: 0.75rem;
+            font-weight: 700;
+        }
+
+        .value-card p {
+            color: var(--text-secondary);
+            font-size: 0.95rem;
+        }
+
+        /* Tech Stack Section */
+        .tech-section {
+            padding: 4rem 0;
+            text-align: center;
+        }
+
+        .tech-section h2 {
+            font-size: 2.5rem;
+            font-weight: 800;
+            margin-bottom: 2rem;
+        }
+
+        .tech-section p {
+            font-size: 1.1rem;
+            color: var(--text-secondary);
+            margin-bottom: 3rem;
+            max-width: 700px;
+            margin-left: auto;
+            margin-right: auto;
+        }
+
+        .tech-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+            gap: 1.5rem;
+        }
+
+        .tech-badge {
+            background: var(--glass-bg);
+            backdrop-filter: blur(20px);
+            border: 1px solid var(--glass-border);
+            border-radius: var(--radius-lg);
+            padding: 1.5rem;
+            font-weight: 600;
+            transition: all var(--transition-base);
+        }
+
+        .tech-badge:hover {
+            border-color: var(--primary);
+            transform: scale(1.05);
+        }
+
+        /* CTA Section */
+        .cta-section {
+            padding: 6rem 0;
+            text-align: center;
+        }
+
+        .cta-card {
+            background: linear-gradient(135deg, var(--gradient-start), var(--gradient-end));
+            border-radius: var(--radius-xl);
+            padding: 4rem 2rem;
+            max-width: 800px;
+            margin: 0 auto;
+        }
+
+        .cta-card h2 {
+            font-size: 2.5rem;
+            font-weight: 800;
+            margin-bottom: 1rem;
+            color: white;
+        }
+
+        .cta-card p {
+            font-size: 1.25rem;
+            margin-bottom: 2rem;
+            color: rgba(255, 255, 255, 0.9);
+        }
+
+        .btn-cta {
+            padding: 1rem 3rem;
+            background: white;
+            color: var(--primary);
+            border: none;
+            border-radius: 12px;
+            font-size: 1.1rem;
+            font-weight: 700;
+            cursor: pointer;
+            text-decoration: none;
+            display: inline-block;
+            transition: all var(--transition-base);
+        }
+
+        .btn-cta:hover {
+            transform: translateY(-2px);
+            box-shadow: 0 10px 40px rgba(0, 0, 0, 0.3);
+        }
+
+        /* Footer */
+        footer {
+            padding: 3rem 0;
+            text-align: center;
+            border-top: 1px solid var(--glass-border);
+            background: rgba(0, 0, 0, 0.3);
+            backdrop-filter: blur(20px);
+        }
+
+        footer p {
+            color: var(--text-secondary);
+        }
+
+        /* Responsive */
+        @media (max-width: 768px) {
+            .about-hero h1 {
+                font-size: 2.5rem;
+            }
+
+            .story-content {
+                grid-template-columns: 1fr;
+            }
+
+            .glass-card {
+                padding: 2rem;
+            }
+
+            .features-grid,
+            .values-grid {
+                grid-template-columns: 1fr;
+            }
+        }
+
+        /* Animations */
+        @keyframes fadeInUp {
+            from {
+                opacity: 0;
+                transform: translateY(30px);
+            }
+            to {
+                opacity: 1;
+                transform: translateY(0);
+            }
+        }
+
+        .glass-card,
+        .feature-card,
+        .team-card,
+        .value-card {
+            animation: fadeInUp 0.6s ease;
+        }
+    </style>
+</head>
+<body>
+    <!-- Floating Food Doodles Background -->
+    <div class="food-doodles">
+        <div class="doodle doodle-1">🍕</div>
+        <div class="doodle doodle-2">🍔</div>
+        <div class="doodle doodle-3">🥤</div>
+        <div class="doodle doodle-4">🍟</div>
+        <div class="doodle doodle-5">🌮</div>
+        <div class="doodle doodle-6">🍰</div>
+        <div class="doodle doodle-7">🥗</div>
+        <div class="doodle doodle-8">🍩</div>
+        <div class="doodle doodle-9">🍝</div>
+        <div class="doodle doodle-10">🥪</div>
+        <div class="doodle doodle-11">🍜</div>
+        <div class="doodle doodle-12">🧃</div>
+    </div>
+
+    <!-- Navigation -->
+    <nav>
+        <div class="nav-container">
+            <a href="/" class="logo-text">DineX</a>
+            <a href="/" class="btn-home">🏠 Back to Home</a>
+        </div>
+    </nav>
+
+    <!-- Hero Section -->
+    <section class="about-hero">
+        <h1>About <span class="gradient-text">DineX</span></h1>
+        <p>Revolutionizing food delivery with cutting-edge algorithms and modern technology</p>
+    </section>
+
+    <!-- Story Section -->
+    <section class="story-section">
+        <div class="container">
+            <div class="glass-card">
+                <h2><span class="gradient-text">Our Story</span></h2>
+                <div class="story-content">
+                    <div class="story-text">
+                        <p>
+                                DineX was born from a passion for bringing people together through exceptional food. 
+                                Founded in Lahore in 2024, we started with a simple vision: to deliver restaurant-quality 
+                                meals to your doorstep with unmatched speed and care. What began as a small local service 
+                                has grown into a trusted name in food delivery across the city.
+                        </p>
+                        <p>
+                            Our mission is to make every meal memorable. From the moment you place your order to the 
+                            time it arrives at your door, we ensure freshness, quality, and speed. We partner with 
+                            the finest local suppliers, work with passionate chefs, and employ dedicated delivery riders 
+                            who treat every order like it's their own.
+
+                        </p>
+                        <p>
+                            We believe that great food should be accessible to everyone, delivered fast without 
+                            compromising on quality. That's why we've built DineX - where culinary excellence meets 
+                            reliable service, bringing joy to your table one meal at a time.
+                        </p>
+                    </div>
+                    <div class="story-image">
+                        <img src="https://images.unsplash.com/photo-1504674900247-0877df9cc836?w=600&h=400&fit=crop" alt="Delicious Food">
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Technology Features -->
+    <section class="container">
+        <h2 style="text-align: center; font-size: 2.5rem; font-weight: 800; margin-bottom: 3rem;">
+            Why <span class="gradient-text">Choose Us</span>
+        </h2>
+        <div class="features-grid">
+            <div class="feature-card">
+                <div class="feature-icon">🍽️</div>
+                <h3>Fresh & Quality Ingredients</h3>
+                <p>We source only the finest ingredients from local suppliers, ensuring every dish is made with premium quality and freshness.</p>
+            </div>
+            <div class="feature-card">
+                <div class="feature-icon">⏱️</div>
+                <h3>Lightning Fast Delivery</h3>
+                <p>Your food delivered hot and fresh within 30 minutes. We optimize our delivery routes to ensure the fastest service possible.</p>
+            </div>
+            <div class="feature-card">
+                <div class="feature-icon">👨‍🍳</div>
+                <h3>Expert Chefs</h3>
+                <p>Our experienced culinary team crafts every meal with passion and precision, bringing restaurant-quality food to your doorstep.</p>
+            </div>
+            <div class="feature-card">
+                <div class="feature-icon">🎯</div>
+                <h3>100% Satisfaction Guarantee</h3>
+                <p>We stand behind our food and service. If you're not completely satisfied, we'll make it right - that's our promise.</p>
+            </div>
+        </div>
+    </section>
+
+    <!-- Values Section -->
+    <section class="values-section">
+        <div class="container">
+            <h2>Our <span class="gradient-text">Core Values</span></h2>
+            <div class="values-grid">
+                <div class="value-card">
+                    <div class="value-icon">🚀</div>
+                    <h3>Speed</h3>
+                    <p>Optimized algorithms ensure lightning-fast order processing and delivery</p>
+                </div>
+                <div class="value-card">
+                    <div class="value-icon">🎯</div>
+                    <h3>Accuracy</h3>
+                    <p>Precise order management and tracking from kitchen to doorstep</p>
+                </div>
+                <div class="value-card">
+                    <div class="value-icon">💎</div>
+                    <h3>Quality</h3>
+                    <p>Premium ingredients and careful preparation for every order</p>
+                </div>
+                <div class="value-card">
+                    <div class="value-icon">🤝</div>
+                    <h3>Reliability</h3>
+                    <p>Consistent service you can count on, every single time</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- CTA Section -->
+    <section class="cta-section">
+        <div class="container">
+            <div class="cta-card">
+                <h2>Ready to Experience DineX?</h2>
+                <p>Join thousands of satisfied customers enjoying fast, efficient food delivery</p>
+                <a href="/#menu" class="btn-cta">Order Now 🍕</a>
+            </div>
+        </div>
+    </section>
+
+    <!-- Footer -->
+    <footer>
+        <div class="container">
+            <p>© 2024 DineX. Created with ❤️ by <strong>Minahil Mehmood (2024-CS-86)</strong> & <strong>Yusra Shahid (2024-CS-110)</strong></p>
+            <p style="margin-top: 0.5rem; font-size: 0.9rem;">DSA Lab Project - UET Lahore</p>
+        </div>
+    </footer>
+</body>
+</html>

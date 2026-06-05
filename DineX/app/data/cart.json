@@ -1,0 +1,74 @@
+{
+    "carts": {
+        "03704018969": {
+            "items": [],
+            "createdAt": "2026-01-04T00:26:43.489717",
+            "lastUpdated": "2026-01-05T02:59:17.745073"
+        },
+        "03000000000": {
+            "items": [],
+            "createdAt": "2026-01-05T02:13:59.584256",
+            "lastUpdated": "2026-01-06T08:50:57.313645"
+        },
+        "03126762315": {
+            "items": [],
+            "createdAt": "2026-01-05T10:06:02.150499",
+            "lastUpdated": "2026-01-06T08:25:59.427928"
+        },
+        "03015920319": {
+            "items": [],
+            "createdAt": "2026-01-05T11:37:45.056870",
+            "lastUpdated": "2026-01-05T11:37:45.057349"
+        },
+        "03156762315": {
+            "items": [
+                {
+                    "id": 106,
+                    "name": "Caesar Salad",
+                    "quantity": 1,
+                    "price": 200,
+                    "image": "https://images.unsplash.com/photo-1546069901-ba9599a7e63c?w=400&h=300&fit=crop"
+                },
+                {
+                    "id": 114,
+                    "name": "Fish Tacos",
+                    "quantity": 1,
+                    "price": 320,
+                    "image": "https://images.unsplash.com/photo-1551504734-5ee1c4a1479b?w=400&h=300&fit=crop"
+                },
+                {
+                    "id": 108,
+                    "name": "Mango Smoothie",
+                    "quantity": 1,
+                    "price": 180,
+                    "image": "https://images.unsplash.com/photo-1505252585461-04db1eb84625?w=400&h=300&fit=crop"
+                }
+            ],
+            "createdAt": "2026-01-05T17:42:02.542835",
+            "lastUpdated": "2026-01-05T17:42:40.093565"
+        },
+        "03456762315": {
+            "items": [],
+            "createdAt": "2026-01-05T17:51:07.320677",
+            "lastUpdated": "2026-01-05T17:51:13.056922"
+        },
+        "03015921673": {
+            "items": [
+                {
+                    "id": 102,
+                    "name": "Pepperoni Pizza",
+                    "quantity": 1,
+                    "price": 800,
+                    "image": "https://images.unsplash.com/photo-1565299624946-b28f40a0ae38?w=400&h=300&fit=crop"
+                }
+            ],
+            "createdAt": "2026-01-05T18:03:58.611135",
+            "lastUpdated": "2026-01-07T05:50:05.595732"
+        },
+        "03015920295": {
+            "items": [],
+            "createdAt": "2026-01-24T07:34:43.128197",
+            "lastUpdated": "2026-01-24T07:35:29.947148"
+        }
+    }
+}

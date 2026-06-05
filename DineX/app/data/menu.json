@@ -1,0 +1,194 @@
+{
+  "items": [
+    {
+      "id": 101,
+      "name": "Classic Burger",
+      "price": 250,
+      "category": "main",
+      "description": "Juicy beef patty with fresh vegetables and special sauce",
+      "stock": 50,
+      "image": "https://images.unsplash.com/photo-1568901346375-23c9450c58cd?w=400&h=300&fit=crop",
+      "rating": 4.5
+    },
+    {
+      "id": 102,
+      "name": "Pepperoni Pizza",
+      "price": 800,
+      "category": "main",
+      "description": "Hand-tossed pizza with premium pepperoni and mozzarella",
+      "stock": 30,
+      "image": "https://images.unsplash.com/photo-1565299624946-b28f40a0ae38?w=400&h=300&fit=crop",
+      "rating": 4.8
+    },
+    {
+      "id": 103,
+      "name": "Coca Cola",
+      "price": 100,
+      "category": "beverage",
+      "description": "Chilled soft drink - 500ml",
+      "stock": 100,
+      "image": "https://images.unsplash.com/photo-1554866585-cd94860890b7?w=400&h=300&fit=crop",
+      "rating": 4.0
+    },
+    {
+      "id": 104,
+      "name": "Ice Cream Sundae",
+      "price": 150,
+      "category": "dessert",
+      "description": "Creamy vanilla ice cream with chocolate sauce and toppings",
+      "stock": 40,
+      "image": "https://images.unsplash.com/photo-1563805042-7684c019e1cb?w=400&h=300&fit=crop",
+      "rating": 4.6
+    },
+    {
+      "id": 105,
+      "name": "Chicken Wings",
+      "price": 350,
+      "category": "appetizer",
+      "description": "Crispy wings with spicy buffalo sauce",
+      "stock": 25,
+      "image": "https://images.unsplash.com/photo-1608039755401-742074f0548d?w=400&h=300&fit=crop",
+      "rating": 4.7
+    },
+    {
+      "id": 106,
+      "name": "Caesar Salad",
+      "price": 200,
+      "category": "appetizer",
+      "description": "Fresh romaine with caesar dressing and croutons",
+      "stock": 35,
+      "image": "https://images.unsplash.com/photo-1546069901-ba9599a7e63c?w=400&h=300&fit=crop",
+      "rating": 4.3
+    },
+    {
+      "id": 107,
+      "name": "Margherita Pizza",
+      "price": 650,
+      "category": "main",
+      "description": "Classic pizza with fresh mozzarella, basil and tomato sauce",
+      "stock": 20,
+      "image": "https://images.unsplash.com/photo-1574071318508-1cdbab80d002?w=400&h=300&fit=crop",
+      "rating": 4.9
+    },
+    {
+      "id": 108,
+      "name": "Mango Smoothie",
+      "price": 180,
+      "category": "beverage",
+      "description": "Fresh mango blended with yogurt and honey",
+      "stock": 45,
+      "image": "https://images.unsplash.com/photo-1505252585461-04db1eb84625?w=400&h=300&fit=crop",
+      "rating": 4.4
+    },
+    {
+      "id": 109,
+      "name": "Chocolate Brownie",
+      "price": 120,
+      "category": "dessert",
+      "description": "Warm chocolate brownie with vanilla ice cream",
+      "stock": 30,
+      "image": "https://images.unsplash.com/photo-1607920591413-4ec007e70023?w=400&h=300&fit=crop",
+      "rating": 4.7
+    },
+    {
+      "id": 110,
+      "name": "Grilled Chicken",
+      "price": 450,
+      "category": "main",
+      "description": "Tender grilled chicken with herbs and spices",
+      "stock": 15,
+      "image": "https://images.unsplash.com/photo-1598103442097-8b74394b95c6?w=400&h=300&fit=crop",
+      "rating": 4.6
+    },
+    {
+      "id": 111,
+      "name": "Fresh Orange Juice",
+      "price": 150,
+      "category": "beverage",
+      "description": "Freshly squeezed orange juice",
+      "stock": 60,
+      "image": "https://images.unsplash.com/photo-1600271886742-f049cd451bba?w=400&h=300&fit=crop",
+      "rating": 4.5
+    },
+    {
+      "id": 112,
+      "name": "Nachos Supreme",
+      "price": 280,
+      "category": "appetizer",
+      "description": "Crispy nachos with cheese, jalapeños and salsa",
+      "stock": 40,
+      "image": "https://images.unsplash.com/photo-1513456852971-30c0b8199d4d?w=400&h=300&fit=crop",
+      "rating": 4.4
+    },
+    {
+      "id": 113,
+      "name": "BBQ Ribs",
+      "price": 550,
+      "category": "main",
+      "description": "Tender pork ribs with smoky BBQ sauce",
+      "stock": 12,
+      "image": "https://images.unsplash.com/photo-1544025162-d76694265947?w=400&h=300&fit=crop",
+      "rating": 4.8
+    },
+    {
+      "id": 114,
+      "name": "Fish Tacos",
+      "price": 320,
+      "category": "main",
+      "description": "Grilled fish with fresh salsa and cabbage slaw",
+      "stock": 28,
+      "image": "https://images.unsplash.com/photo-1551504734-5ee1c4a1479b?w=400&h=300&fit=crop",
+      "rating": 4.5
+    },
+    {
+      "id": 115,
+      "name": "Iced Coffee",
+      "price": 130,
+      "category": "beverage",
+      "description": "Cold brew coffee with ice and milk",
+      "stock": 70,
+      "image": "https://images.unsplash.com/photo-1517487881594-2787fef5ebf7?w=400&h=300&fit=crop",
+      "rating": 4.3
+    },
+    {
+      "id": 116,
+      "name": "Cheesecake",
+      "price": 180,
+      "category": "dessert",
+      "description": "Creamy New York style cheesecake with berry topping",
+      "stock": 22,
+      "image": "https://images.unsplash.com/photo-1533134486753-c833f0ed4866?w=400&h=300&fit=crop",
+      "rating": 4.9
+    },
+    {
+      "id": 117,
+      "name": "Spaghetti Carbonara",
+      "price": 380,
+      "category": "main",
+      "description": "Classic Italian pasta with creamy sauce and bacon",
+      "stock": 18,
+      "image": "https://images.unsplash.com/photo-1612874742237-6526221588e3?w=400&h=300&fit=crop",
+      "rating": 4.7
+    },
+    {
+      "id": 118,
+      "name": "Greek Salad",
+      "price": 220,
+      "category": "appetizer",
+      "description": "Fresh vegetables with feta cheese and olives",
+      "stock": 30,
+      "image": "https://images.unsplash.com/photo-1540189549336-e6e99c3679fe?w=400&h=300&fit=crop",
+      "rating": 4.4
+    },
+    {
+      "id": 119,
+      "name": "Tiramisu",
+      "price": 200,
+      "category": "dessert",
+      "description": "Classic Italian dessert with coffee and mascarpone",
+      "stock": 15,
+      "image": "https://images.unsplash.com/photo-1571877227200-a0d98ea607e9?w=400&h=300&fit=crop",
+      "rating": 4.8
+    }
+  ]
+}

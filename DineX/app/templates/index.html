@@ -1,0 +1,482 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>DineX - Your Food, Delivered Fast</title>
+    <!-- <link rel="stylesheet" href="style.css"> -->
+    <link rel="stylesheet" href="{{ url_for('static', filename='css/style.css') }}">
+    
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700;800;900&display=swap" rel="stylesheet">
+</head>
+<body>
+    <!-- Floating Food Doodles Background -->
+    <div class="food-doodles">
+        <div class="doodle doodle-1">🍕</div>
+        <div class="doodle doodle-2">🍔</div>
+        <div class="doodle doodle-3">🥤</div>
+        <div class="doodle doodle-4">🍟</div>
+        <div class="doodle doodle-5">🌮</div>
+        <div class="doodle doodle-6">🍰</div>
+        <div class="doodle doodle-7">🥗</div>
+        <div class="doodle doodle-8">🍩</div>
+        <div class="doodle doodle-9">🍝</div>
+        <div class="doodle doodle-10">🥪</div>
+        <div class="doodle doodle-11">🍜</div>
+        <div class="doodle doodle-12">🧃</div>
+    </div>
+
+    <!-- Navigation with Glassmorphism -->
+    <nav id="navbar">
+        <div class="nav-container">
+            <div class="logo">
+                <span class="logo-text">DineX</span>
+                <span class="logo-dot"></span>
+            </div>
+            <ul class="nav-links">
+                <li><a href="#home" class="nav-link">Home</a></li>
+                <li><a href="#menu" class="nav-link">Menu</a></li>
+                <li><a href="#orders" class="nav-link">Orders</a></li>
+                <!-- <li><a href="#tracking" class="nav-link">Track Order</a></li> -->
+                <li><a href="/about" class="nav-link">About</a></li>
+            </ul>
+            <!-- <div class="nav-buttons">
+                <button class="btn-login glass-btn" onclick="window.location.href='{{ url_for('main.login')}}'">
+                    <span>Login</span>
+                </button>
+                <button class="btn-cart glass-btn">
+                    <span class="cart-icon">🛒</span>
+                    <span class="cart-count">0</span>
+                </button>
+            </div> -->
+            <div class="nav-buttons" id="navButtons">
+            <button class="btn-login glass-btn"
+            onclick="window.location.href='{{ url_for('main.login') }}'">
+            Login
+            </button>
+
+                <button class="btn-cart glass-btn" type="button">
+                    <span class="cart-icon">🛒</span>
+                    <span class="cart-count">0</span>
+                </button>
+            </div>
+
+
+            <button class="mobile-menu-btn">
+                <span></span>
+                <span></span>
+                <span></span>
+            </button>
+        </div>
+    </nav>
+
+    <!-- Hero Section -->
+    <section id="home" class="hero">
+        <div class="hero-content">
+            <div class="hero-text">
+                <div class="hero-badge glass-card">
+                    <span class="badge-icon">⚡</span>
+                    <span>Fast Delivery Guaranteed</span>
+                </div>
+                <h1 class="hero-title">
+                    <span class="title-line gradient-text">Delicious Food</span>
+                    <span class="title-line">Delivered Fast</span>
+                </h1>
+                <p class="hero-subtitle">Experience the best food delivery service with optimized routes and priority delivery using advanced algorithms</p>
+                <div class="hero-buttons">
+                    <button class="btn-primary gradient-btn" onclick="scrollToMenu()">
+                        <span>Order Now</span>
+                        <span class="btn-icon">→</span>
+                    </button>
+                    <button class="btn-secondary glass-btn">
+                        <span>View Menu</span>
+                    </button>
+                </div>
+                <div class="hero-stats">
+                    <div class="stat glass-card">
+                        <h3 class="stat-number gradient-text">500+</h3>
+                        <p class="stat-label">Menu Items</p>
+                    </div>
+                    <div class="stat glass-card">
+                        <h3 class="stat-number gradient-text">20min</h3>
+                        <p class="stat-label">Avg Delivery</p>
+                    </div>
+                    <div class="stat glass-card">
+                        <h3 class="stat-number gradient-text">1000+</h3>
+                        <p class="stat-label">Happy Customers</p>
+                    </div>
+                </div>
+            </div>
+            <div class="hero-image">
+                <div class="floating-card glass-card card-1">
+                    <img src="https://images.unsplash.com/photo-1568901346375-23c9450c58cd?w=400&h=400&fit=crop" alt="Burger" loading="lazy">
+                    <div class="card-overlay">
+                        <span class="card-badge">⭐ 4.8</span>
+                    </div>
+                </div>
+                <div class="floating-card glass-card card-2">
+                    <img src="https://images.unsplash.com/photo-1565299624946-b28f40a0ae38?w=400&h=400&fit=crop" alt="Pizza" loading="lazy">
+                    <div class="card-overlay">
+                        <span class="card-badge">⭐ 4.9</span>
+                    </div>
+                </div>
+                <div class="floating-card glass-card card-3">
+                    <img src="https://images.unsplash.com/photo-1546069901-ba9599a7e63c?w=400&h=400&fit=crop" alt="Salad" loading="lazy">
+                    <div class="card-overlay">
+                        <span class="card-badge">⭐ 4.5</span>
+                    </div>
+                </div>
+                <!-- Decorative Elements -->
+                <div class="hero-decoration decoration-1"></div>
+                <div class="hero-decoration decoration-2"></div>
+            </div>
+        </div>
+        <div class="scroll-indicator">
+            <span class="scroll-text">Scroll Down</span>
+            <div class="scroll-arrow">
+                <span></span>
+                <span></span>
+            </div>
+        </div>
+    </section>
+
+    <!-- kitchen cards -->
+    <!-- ADD THIS TO YOUR NAVBAR OR HEADER -->
+<!-- This example assumes you have a navbar in your layout -->
+
+
+<script>
+    // Show dashboard menu only for admin users
+    document.addEventListener('DOMContentLoaded', async () => {
+        try {
+            const response = await fetch('/api/check-session');
+            const data = await response.json();
+            
+            if (data.logged_in && (data.user.role === 'admin' || data.user.role === 'super_admin')) {
+                document.getElementById('adminDashboardMenu').style.display = 'inline-block';
+            }
+        } catch (error) {
+            console.error('Session check error:', error);
+        }
+    });
+</script>
+ 
+    <!-- Features Section -->
+<section class="features" id="features">
+    <div class="container">
+        <div class="section-header">
+            <span class="section-badge glass-card">Why Choose Us</span>
+            <h2 class="section-title">
+                Why Choose <span class="gradient-text">DineX?</span>
+            </h2>
+            <p class="section-subtitle">Experience the difference with our premium service</p>
+        </div>
+        <div class="features-grid">
+            <div class="feature-card glass-card">
+                <div class="feature-icon gradient-bg">🍽️</div>
+                <h3 class="feature-title">Fresh & Quality Ingredients</h3>
+                <p class="feature-description">We source only the finest ingredients from local suppliers, ensuring every dish is made with premium quality and freshness.</p>
+            </div>
+            <div class="feature-card glass-card">
+                <div class="feature-icon gradient-bg">⏱️</div>
+                <h3 class="feature-title">Lightning Fast Delivery</h3>
+                <p class="feature-description">Your food delivered hot and fresh within 30 minutes. We optimize our delivery routes to ensure the fastest service possible.</p>
+            </div>
+            <div class="feature-card glass-card">
+                <div class="feature-icon gradient-bg">👨‍🍳</div>
+                <h3 class="feature-title">Expert Chefs</h3>
+                <p class="feature-description">Our experienced culinary team crafts every meal with passion and precision, bringing restaurant-quality food to your doorstep.</p>
+            </div>
+            <div class="feature-card glass-card">
+                <div class="feature-icon gradient-bg">🎯</div>
+                <h3 class="feature-title">100% Satisfaction Guarantee</h3>
+                <p class="feature-description">We stand behind our food and service. If you're not completely satisfied, we'll make it right - that's our promise.</p>
+            </div>
+        </div>
+    </div>
+</section>
+
+    <!-- Menu Section -->
+    <section id="menu" class="menu-section">
+        <div class="container">
+            <div class="section-header">
+                <span class="section-badge glass-card">Our Menu</span>
+                <h2 class="section-title">
+                    Explore Our <span class="gradient-text">Delicious Menu</span>
+                </h2>
+                <p class="section-subtitle">Freshly prepared with love and care</p>
+            </div>
+            
+            <!-- Category Filter -->
+            <div class="category-filter">
+                <button class="filter-btn glass-btn active" data-category="all">
+                    <span>All Items</span>
+                </button>
+                <button class="filter-btn glass-btn" data-category="main">
+                    <span>Main Course</span>
+                </button>
+                <button class="filter-btn glass-btn" data-category="beverage">
+                    <span>Beverages</span>
+                </button>
+                <button class="filter-btn glass-btn" data-category="dessert">
+                    <span>Desserts</span>
+                </button>
+                <button class="filter-btn glass-btn" data-category="appetizer">
+                    <span>Appetizers</span>
+                </button>
+            </div>
+
+            <!-- Search and Sort Controls -->
+            <div class="menu-controls">
+                <div class="search-wrapper glass-card">
+                    <span class="search-icon">🔍</span>
+                    <input type="text" id="menuSearch" placeholder="Search delicious food..." class="search-input">
+                </div>
+                <select id="sortMenu" class="sort-select glass-card">
+                    <option value="name">Sort by Name</option>
+                    <option value="price-low">Price: Low to High</option>
+                    <option value="price-high">Price: High to Low</option>
+                    <option value="popular">Most Popular</option>
+                </select>
+                <div class="price-range glass-card">
+                    <label class="price-label">
+                        <span>Max Price:</span>
+                        <span id="priceValue" class="gradient-text">Rs. 1000</span>
+                    </label>
+                    <input type="range" id="priceFilter" min="0" max="1000" value="1000" class="price-slider">
+                </div>
+            </div>
+
+            <!-- Menu Grid -->
+            <div id="menuGrid" class="menu-grid">
+                <!-- Menu items will be loaded dynamically -->
+            </div>
+        </div>
+    </section>
+
+    <!-- Order Management Section -->
+    <section id="orders" class="orders-section">
+        <div class="container">
+            <div class="section-header">
+                <span class="section-badge glass-card">Place Order</span>
+                <h2 class="section-title">
+                    Order <span class="gradient-text">Management</span>
+                </h2>
+            </div>
+            
+            <div class="order-tabs">
+                <button class="tab-btn glass-btn active" data-tab="new-order">
+                    <span class="tab-icon">🛒</span>
+                    <span>Place Order</span>
+                </button>
+            </div>
+
+            <!-- New Order Tab -->
+            <div id="new-order" class="tab-content active">
+                <div class="order-container">
+                    <div class="order-form glass-card">
+                        <h3 class="form-title">Customer Information</h3>
+                        <div class="form-group">
+                            <label class="form-label">Phone Number</label>
+                            <input type="tel" id="customerPhone" placeholder="03XX-XXXXXXX" class="form-input glass-input">
+                        </div>
+                        <div class="form-group">
+                            <label class="form-label">Full Name</label>
+                            <input type="text" id="customerName" placeholder="Enter your name" class="form-input glass-input">
+                        </div>
+                        <div class="form-group">
+                            <label class="form-label">Delivery Address</label>
+                            <textarea id="customerAddress" placeholder="Enter complete address" class="form-input glass-input" rows="3"></textarea>
+                        </div>
+                        
+                        <h3 class="form-title">Order Type</h3>
+                        <div class="order-type-selection">
+                            <label class="radio-card glass-card">
+                                <input type="radio" name="orderType" value="regular" checked>
+                                <div class="radio-icon">🚴</div>
+                                <span class="radio-title">Regular</span>
+                                <small class="radio-desc">Standard processing</small>
+                            </label>
+                            <label class="radio-card glass-card">
+                                <input type="radio" name="orderType" value="express">
+                                <div class="radio-icon">⚡</div>
+                                <span class="radio-title">Express</span>
+                                <small class="radio-desc">Higher priority</small>
+                            </label>
+                            <label class="radio-card glass-card">
+                                <input type="radio" name="orderType" value="vip">
+                                <div class="radio-icon">👑</div>
+                                <span class="radio-title">VIP</span>
+                                <small class="radio-desc">Highest priority</small>
+                            </label>
+                        </div>
+
+                        <div class="cart-section">
+                            <h3 class="form-title">Cart Items</h3>
+                            <div class="cart-items glass-card" id="cartItems">
+                                <div class="empty-cart">
+                                    <span class="empty-icon">🛒</span>
+                                    <p>Your cart is empty</p>
+                                    <small>Add items from menu</small>
+                                </div>
+                            </div>
+                        </div>
+
+                        <div class="order-summary glass-card">
+                            <h3 class="summary-title">Order Summary</h3>
+                            <div class="summary-row">
+                                <span>Subtotal:</span>
+                                <span id="subtotal" class="summary-value">Rs. 0</span>
+                            </div>
+                            <div class="summary-row">
+                                <span>Delivery Fee:</span>
+                                <span id="deliveryFee" class="summary-value">Rs. 50</span>
+                            </div>
+                            <div class="summary-divider"></div>
+                            <div class="summary-row summary-total">
+                                <span>Total:</span>
+                                <span id="totalAmount" class="gradient-text">Rs. 0</span>
+                            </div>
+                        </div>
+
+                        <button class="btn-primary gradient-btn btn-large" onclick="placeOrder()">
+                            <span>Place Order</span>
+                            <span class="btn-icon">✓</span>
+                        </button>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Order Status Tab -->
+            <div id="order-status" class="tab-content">
+                <div class="status-container">
+                    <div class="status-search glass-card">
+                        <input type="text" id="orderIdSearch" placeholder="Enter Order ID (e.g., #1234)" class="form-input glass-input">
+                        <button class="btn-primary gradient-btn" onclick="searchOrder()">
+                            <span>Track Order</span>
+                            <span class="btn-icon">🔍</span>
+                        </button>
+                    </div>
+                    <div id="orderStatusDisplay" class="order-status-display"></div>
+                </div>
+            </div>
+
+            <!-- Order History Tab -->
+            <div id="order-history" class="tab-content">
+                <div class="history-container">
+                    <div class="history-search glass-card">
+                        <input type="text" id="historyPhone" placeholder="Enter Phone Number" class="form-input glass-input">
+                        <button class="btn-primary gradient-btn" onclick="loadOrderHistory()">
+                            <span>Load History</span>
+                            <span class="btn-icon">📋</span>
+                        </button>
+                    </div>
+                    <div id="orderHistoryDisplay" class="order-history-display"></div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Footer -->
+    <footer class="footer">
+        <div class="container">
+            <div class="footer-content">
+                <div class="footer-section">
+                    <h3 class="footer-logo gradient-text">DineX</h3>
+                    <p class="footer-desc">Your favorite food, delivered with speed and precision using advanced algorithms.</p>
+                    <div class="social-links">
+                        <a href="#" class="social-link glass-card">📱</a>
+                        <a href="#" class="social-link glass-card">💬</a>
+                        <a href="#" class="social-link glass-card">📧</a>
+                    </div>
+                </div>
+                <div class="footer-section">
+                    <h4 class="footer-title">Quick Links</h4>
+                    <ul class="footer-links">
+                        <li><a href="#menu">Menu</a></li>
+                        <li><a href="#orders">Orders</a></li>
+                        <li><a href="#tracking">Tracking</a></li>
+                        <li><a href="#about">About Us</a></li>
+                    </ul>
+                </div>
+                <div class="footer-section">
+                    <h4 class="footer-title">Why Choose DineX</h4>
+                    <ul class="footer-links">
+                        <li>Fresh & Quality Ingredients</li>
+                        <li>Reliable Delivery</li>
+                        <li>User-Friendly Experience</li>
+                        <li>Trusted by Customers</li>
+                    </ul>
+                </div>
+                <div class="footer-section">
+                    <h4 class="footer-title">Contact</h4>
+                    <p class="footer-info">Lahore, Pakistan</p>
+                    <p class="footer-info">Crafting great dining experiences, delivered</p>
+                    <p class="footer-info">support@dinex.com</p>
+                </div>
+            </div>
+            <div class="footer-bottom">
+                <p class="footer-copyright">
+                    © 2024 DineX. Created with ❤ by 
+                    <span class="gradient-text">Minahil Mehmood (2024-CS-86)</span> & 
+                    <span class="gradient-text">Yusra Shahid (2024-CS-110)</span>
+                </p>
+            </div>
+        </div>
+    </footer>
+
+    <!-- Enhanced Cart Sidebar with Glassmorphism -->
+    <div id="cartSidebar" class="cart-sidebar">
+        <div class="cart-header">
+    <h3>Your Cart</h3>
+    
+    <!-- ✅ ADD THIS NEW DIV -->
+    <div id="undoRedoControls" class="undo-redo-controls">
+        <button id="undoBtn" class="undo-redo-btn undo-btn glass-btn" 
+                onclick="undoCartDelete()" disabled title="Nothing to undo">
+            <span class="btn-icon">↩️</span>
+            <span>Undo</span>
+        </button>
+        <button id="redoBtn" class="undo-redo-btn redo-btn glass-btn" 
+                onclick="redoCartDelete()" disabled title="Nothing to redo">
+            <span class="btn-icon">↪️</span>
+            <span>Redo</span>
+        </button>
+    </div>
+    <!-- ✅ END OF NEW DIV -->
+    
+    <button id="closeCartBtn" class="close-cart-btn">&times;</button>
+</div>
+
+        
+        <div id="cartItemsContainer" class="cart-items">
+            <!-- Cart items will be dynamically inserted here -->
+            <div class="cart-empty-state">
+                <div class="cart-empty-icon">🛒</div>
+                <p>Your cart is empty</p>
+                <small>Add items from the menu to get started</small>
+            </div>
+        </div>
+        
+        <div class="cart-footer">
+            <div class="cart-footer-content">
+                <div class="cart-total-row">
+                    <span>Total:</span>
+                    <span>Rs. 0</span>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <div id="cartOverlay" class="cart-overlay"></div>
+
+
+    <!-- Toast Notification Container -->
+    <div id="toastContainer" class="toast-container"></div>
+
+    <!-- <script src="script.js"></script> -->
+    <script src="{{ url_for('static', filename='js/script.js') }}"></script>
+</body>
+</html>

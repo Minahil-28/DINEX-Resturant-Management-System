@@ -1,0 +1,597 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Admin Dashboard - Priority Queue Delivery</title>
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;600;700;800&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="{{ url_for('static', filename='css/style.css') }}">
+
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            font-family: 'Poppins', sans-serif;
+            background: linear-gradient(135deg, #0f0f1e 0%, #1a0b2e 50%, #0f0f1e 100%);
+            color: white;
+            min-height: 100vh;
+            padding: 2rem;
+            overflow-x: hidden;
+        }
+
+        /* Floating Food Doodles */
+        .food-doodles {
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            pointer-events: none;
+            z-index: 1;
+            overflow: hidden;
+        }
+
+        .doodle {
+            position: absolute;
+            font-size: 3rem;
+            opacity: 0.08;
+            animation: float 20s infinite ease-in-out;
+        }
+
+        .doodle-1 { top: 10%; left: 10%; animation-delay: 0s; font-size: 4rem; }
+        .doodle-2 { top: 20%; right: 15%; animation-delay: 2s; font-size: 3.5rem; }
+        .doodle-3 { top: 50%; left: 5%; animation-delay: 4s; font-size: 3rem; }
+        .doodle-4 { bottom: 20%; right: 10%; animation-delay: 6s; font-size: 3.5rem; }
+        .doodle-5 { bottom: 15%; left: 15%; animation-delay: 8s; font-size: 4rem; }
+        .doodle-6 { top: 60%; right: 5%; animation-delay: 10s; font-size: 3rem; }
+        .doodle-7 { top: 30%; left: 25%; animation-delay: 12s; font-size: 3.5rem; }
+        .doodle-8 { bottom: 40%; left: 40%; animation-delay: 14s; font-size: 3rem; }
+        .doodle-9 { top: 70%; right: 25%; animation-delay: 16s; font-size: 3.5rem; }
+        .doodle-10 { bottom: 60%; right: 35%; animation-delay: 18s; font-size: 3rem; }
+        .doodle-11 { top: 40%; left: 50%; animation-delay: 3s; font-size: 3.5rem; }
+        .doodle-12 { bottom: 50%; left: 60%; animation-delay: 7s; font-size: 3rem; }
+
+        @keyframes float {
+            0%, 100% {
+                transform: translateY(0px);
+            }
+            50% {
+                transform: translateY(-20px);
+            }
+        }
+
+        .container {
+            max-width: 1400px;
+            margin: 0 auto;
+            position: relative;
+            z-index: 2;
+        }
+
+        h1 {
+            text-align: center;
+            margin-bottom: 1rem;
+            font-size: 2.5rem;
+            background: linear-gradient(135deg, #ff6b35, #ff4081);
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+        }
+
+        .subtitle {
+            text-align: center;
+            color: rgba(255, 255, 255, 0.7);
+            margin-bottom: 2rem;
+            font-size: 1.1rem;
+        }
+
+        .priority-banner {
+            background: linear-gradient(135deg, rgba(255, 107, 53, 0.15), rgba(255, 64, 129, 0.12));
+            border: 1.5px solid rgba(255, 107, 53, 0.35);
+            border-radius: 18px;
+            padding: 1.5rem;
+            margin-bottom: 2rem;
+            text-align: center;
+            box-shadow: 0 0 28px rgba(255, 107, 53, 0.15);
+        }
+
+        .priority-banner h2 {
+            color: #ff6b35;
+            margin-bottom: 0.5rem;
+        }
+
+        .priority-banner p {
+            color: rgba(255, 255, 255, 0.75);
+        }
+
+        .stats-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+            gap: 1.5rem;
+            margin-bottom: 3rem;
+        }
+
+        .stat-card {
+            background: rgba(255, 255, 255, 0.05);
+            backdrop-filter: blur(20px);
+            border: 1px solid rgba(255, 255, 255, 0.1);
+            border-radius: 16px;
+            padding: 1.5rem;
+            text-align: center;
+        }
+
+        .stat-number {
+            font-size: 3rem;
+            font-weight: 800;
+            background: linear-gradient(135deg, #ff6b35, #ff4081);
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+            margin-bottom: 0.5rem;
+        }
+
+        .stat-label {
+            color: rgba(255, 255, 255, 0.7);
+            font-size: 1rem;
+        }
+
+        .section {
+            background: rgba(255, 255, 255, 0.05);
+            backdrop-filter: blur(20px);
+            border: 1px solid rgba(255, 255, 255, 0.1);
+            border-radius: 20px;
+            padding: 2rem;
+            margin-bottom: 2rem;
+        }
+
+        .section-header {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            margin-bottom: 1.5rem;
+        }
+
+        .section-title {
+            font-size: 1.5rem;
+            font-weight: 700;
+        }
+
+        .btn {
+            padding: 0.75rem 1.5rem;
+            border-radius: 12px;
+            border: none;
+            font-weight: 600;
+            cursor: pointer;
+            transition: all 0.3s ease;
+            font-family: 'Poppins', sans-serif;
+        }
+
+        .btn-primary {
+            background: linear-gradient(135deg, #ff6b35, #ff4081);
+            color: white;
+        }
+
+        .btn-primary:hover {
+            transform: translateY(-2px);
+            box-shadow: 0 10px 40px rgba(255, 107, 53, 0.4);
+        }
+
+        .btn-success {
+            background: linear-gradient(135deg, #00d4aa, #00b894);
+            color: white;
+        }
+
+        .order-list {
+            display: flex;
+            flex-direction: column;
+            gap: 1rem;
+        }
+
+        .order-card {
+            background: rgba(255, 255, 255, 0.03);
+            border: 1px solid rgba(255, 255, 255, 0.1);
+            border-radius: 12px;
+            padding: 1.5rem;
+            display: grid;
+            grid-template-columns: auto 1fr auto;
+            gap: 1.5rem;
+            align-items: center;
+            transition: all 0.3s ease;
+        }
+
+        .order-card:hover {
+            background: rgba(255, 255, 255, 0.06);
+            border-color: rgba(255, 107, 53, 0.3);
+        }
+
+        .priority-badge {
+            width: 60px;
+            height: 60px;
+            border-radius: 12px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-size: 2rem;
+            font-weight: 800;
+        }
+
+        .priority-vip {
+            background: linear-gradient(135deg, #ffd700, #ff8c00);
+            animation: pulse 2s infinite;
+        }
+
+        .priority-express {
+            background: linear-gradient(135deg, #ff6b35, #ff4081);
+        }
+
+        .priority-regular {
+            background: linear-gradient(135deg, #667eea, #764ba2);
+        }
+
+        @keyframes pulse {
+            0%, 100% { transform: scale(1); }
+            50% { transform: scale(1.05); }
+        }
+
+        .order-info {
+            flex: 1;
+        }
+
+        .order-id {
+            font-size: 1.2rem;
+            font-weight: 700;
+            margin-bottom: 0.5rem;
+            color: #ff6b35;
+        }
+
+        .order-customer {
+            font-size: 1rem;
+            margin-bottom: 0.25rem;
+        }
+
+        .order-details {
+            color: rgba(255, 255, 255, 0.6);
+            font-size: 0.9rem;
+        }
+
+        .empty-state {
+            text-align: center;
+            padding: 3rem;
+            color: rgba(255, 255, 255, 0.5);
+        }
+
+        .empty-icon {
+            font-size: 4rem;
+            margin-bottom: 1rem;
+        }
+
+        .refresh-btn {
+            position: fixed;
+            bottom: 2rem;
+            right: 2rem;
+            width: 60px;
+            height: 60px;
+            border-radius: 50%;
+            background: linear-gradient(135deg, #ff6b35, #ff4081);
+            color: white;
+            border: none;
+            font-size: 1.5rem;
+            cursor: pointer;
+            box-shadow: 0 8px 32px rgba(255, 107, 53, 0.4);
+            transition: all 0.3s ease;
+            z-index: 1000;
+        }
+
+        .refresh-btn:hover {
+            transform: scale(1.1) rotate(180deg);
+        }
+
+        .priority-indicator {
+            display: inline-block;
+            padding: 0.5rem 1rem;
+            border-radius: 20px;
+            font-size: 0.85rem;
+            font-weight: 700;
+            margin-top: 0.5rem;
+        }
+
+        .priority-1 {
+            background: rgba(255, 215, 0, 0.3);
+            color: #ffd700;
+            border: 2px solid #ffd700;
+        }
+
+        .priority-2 {
+            background: rgba(255, 107, 53, 0.3);
+            color: #ff6b35;
+            border: 2px solid #ff6b35;
+        }
+
+        .priority-3 {
+            background: rgba(102, 126, 234, 0.3);
+            color: #667eea;
+            border: 2px solid #667eea;
+        }
+
+        .last-updated {
+            text-align: center;
+            color: rgba(255, 255, 255, 0.5);
+            font-size: 0.85rem;
+            margin-top: 1rem;
+        }
+
+        .floating-nav {
+            position: fixed;
+            top: 1.8rem;
+            right: 2rem;
+            z-index: 9999;
+            display: flex;
+            gap: 1rem;
+        }
+
+        .floating-btn {
+            all: unset;
+            cursor: pointer;
+            padding: 0.6rem 1.3rem;
+            border-radius: 14px;
+            font-family: 'Poppins', sans-serif;
+            font-weight: 600;
+            font-size: 0.95rem;
+            color: #ff6b35;
+            background: rgba(255, 107, 53, 0.14);
+            backdrop-filter: blur(16px);
+            -webkit-backdrop-filter: blur(16px);
+            border: 1px solid rgba(255, 107, 53, 0.35);
+            box-shadow: 0 8px 30px rgba(255, 107, 53, 0.18), inset 0 0 12px rgba(255, 107, 53, 0.12);
+            transition: all 0.3s ease;
+        }
+
+        .floating-btn:hover {
+            background: rgba(255, 107, 53, 0.25);
+            transform: translateY(-2px);
+            box-shadow: 0 12px 40px rgba(255, 107, 53, 0.35), inset 0 0 14px rgba(255, 107, 53, 0.2);
+        }
+    </style>
+</head>
+<body>
+    <!-- Floating Food Doodles Background -->
+    <div class="food-doodles">
+        <div class="doodle doodle-1">🍕</div>
+        <div class="doodle doodle-2">🍔</div>
+        <div class="doodle doodle-3">🥤</div>
+        <div class="doodle doodle-4">🍟</div>
+        <div class="doodle doodle-5">🌮</div>
+        <div class="doodle doodle-6">🍰</div>
+        <div class="doodle doodle-7">🥗</div>
+        <div class="doodle doodle-8">🍩</div>
+        <div class="doodle doodle-9">🍝</div>
+        <div class="doodle doodle-10">🥪</div>
+        <div class="doodle doodle-11">🍜</div>
+        <div class="doodle doodle-12">🧃</div>
+    </div>
+
+    <nav class="floating-nav">
+        <a href="/" class="floating-btn">🏠 Home</a>
+        <a href="/kitchen" class="floating-btn">👨‍🍳 Kitchen</a>
+        <a href="/rider" class="floating-btn">🚴 Rider</a>
+    </nav>
+
+    <div class="container">
+        <h1>🎛️ Admin Dashboard </h1>
+        <p class="subtitle">Orders are delivered based on priority: VIP → Express → Regular</p>
+
+        <div class="priority-banner">
+            <h2>🔥 Smart Order Dispatch</h2>
+            <p>Freshly prepared meals are dispatched based on urgency and service level — ensuring VIP and time-sensitive orders reach customers hot and on time.</p>
+        </div>
+
+        <!-- Statistics -->
+        <div class="stats-grid">
+            <div class="stat-card">
+                <div class="stat-number" id="statReady">-</div>
+                <div class="stat-label">📦 Ready for Delivery</div>
+            </div>
+
+            <div class="stat-card">
+                <div class="stat-number" id="statDelivered">-</div>
+                <div class="stat-label">✅ Delivered</div>
+            </div>
+        </div>
+
+        <!-- Priority Breakdown -->
+        <div class="section">
+            <div class="section-header">
+                <h2 class="section-title">📊 Priority Queue Breakdown</h2>
+            </div>
+            <div class="stats-grid">
+                <div class="stat-card">
+                    <div class="stat-number" id="statVip">-</div>
+                    <div class="stat-label">👑 VIP (Priority 1)</div>
+                </div>
+                <div class="stat-card">
+                    <div class="stat-number" id="statExpress">-</div>
+                    <div class="stat-label">⚡ Express (Priority 2)</div>
+                </div>
+                <div class="stat-card">
+                    <div class="stat-number" id="statRegular">-</div>
+                    <div class="stat-label">🚴 Regular (Priority 3)</div>
+                </div>
+            </div>
+        </div>
+
+        <!-- Ready for Delivery (Priority Queue) -->
+        <div class="section">
+            <div class="section-header">
+                <div>
+                    <h2 class="section-title">📦 Ready for Delivery (Sorted by Priority)</h2>
+                    <p style="color: rgba(255, 255, 255, 0.6); font-size: 0.9rem; margin-top: 0.5rem;">
+                        Orders are sorted: VIP → Express → Regular
+                    </p>
+                </div>
+                <button class="btn btn-primary" onclick="assignNextPriorityOrder()">
+                    Assign Highest Priority Order 🚀
+                </button>
+            </div>
+            <div id="readyOrders" class="order-list">
+                <div class="empty-state">
+                    <div class="empty-icon">📦</div>
+                    <p>Loading orders...</p>
+                </div>
+            </div>
+        </div>
+
+        <p class="last-updated">Last updated: <span id="lastUpdated">Never</span></p>
+    </div>
+
+    <button class="refresh-btn" onclick="loadDashboardData()" title="Refresh">
+        🔄
+    </button>
+
+    <script>
+        let refreshInterval;
+
+        document.addEventListener('DOMContentLoaded', () => {
+            console.log('🚀 Admin Dashboard loaded');
+            loadDashboardData();
+            
+            refreshInterval = setInterval(loadDashboardData, 3000);
+        });
+
+        async function loadDashboardData() {
+            try {
+                console.log('🔄 Refreshing dashboard data...');
+                
+                const statsRes = await fetch('/api/orders/delivery/stats');
+                const statsData = await statsRes.json();
+                
+                if (statsData.success) {
+                    console.log('✅ Data loaded:', statsData);
+                    
+                    document.getElementById('statReady').textContent = statsData.stats.ready;
+                    document.getElementById('statDelivered').textContent = statsData.stats.delivered;
+                    
+                    const readyOrders = statsData.orders.ready || [];
+                    const vipCount = readyOrders.filter(o => o.priority === 1).length;
+                    const expressCount = readyOrders.filter(o => o.priority === 2).length;
+                    const regularCount = readyOrders.filter(o => o.priority === 3).length;
+                    
+                    document.getElementById('statVip').textContent = vipCount;
+                    document.getElementById('statExpress').textContent = expressCount;
+                    document.getElementById('statRegular').textContent = regularCount;
+                    
+                    renderReadyOrders(statsData.orders.ready || []);
+                    renderOutForDelivery(statsData.orders.outForDelivery || []);
+                    renderDelivered(statsData.orders.delivered || []);
+                    
+                    document.getElementById('lastUpdated').textContent = new Date().toLocaleTimeString();
+                } else {
+                    console.error('❌ Failed to load stats:', statsData.message);
+                }
+            } catch (error) {
+                console.error('❌ Error loading dashboard:', error);
+            }
+        }
+
+        function renderReadyOrders(orders) {
+            const container = document.getElementById('readyOrders');
+            
+            console.log('📦 Rendering ready orders:', orders.length);
+            
+            if (!orders || orders.length === 0) {
+                container.innerHTML = `
+                    <div class="empty-state">
+                        <div class="empty-icon">📦</div>
+                        <p>No orders ready for delivery</p>
+                        <p style="font-size: 0.85rem; margin-top: 0.5rem;">Orders will appear here when kitchen finishes cooking</p>
+                    </div>
+                `;
+                return;
+            }
+
+            container.innerHTML = orders.map((order, index) => {
+                const priorityClass = `priority-${order.orderType}`;
+                const priorityIcon = order.priority === 1 ? '👑' : 
+                                   order.priority === 2 ? '⚡' : '🚴';
+                
+                const itemCount = order.items.reduce((sum, item) => sum + item.quantity, 0);
+                const time = new Date(order.timestamp).toLocaleTimeString();
+                
+                const queuePosition = index + 1;
+                
+                return `
+                    <div class="order-card" style="${order.priority === 1 ? 'border: 2px solid #ffd700;' : ''}">
+                        <div class="priority-badge ${priorityClass}">
+                            ${priorityIcon}
+                        </div>
+                        <div class="order-info">
+                            <div style="display: flex; align-items: center; gap: 1rem;">
+                                <div class="order-id">#${queuePosition} - ${order.orderId}</div>
+                                <span class="priority-indicator priority-${order.priority}">
+                                    ${order.orderType.toUpperCase()} (Priority ${order.priority})
+                                </span>
+                            </div>
+                            <div class="order-customer">👤 ${order.customerName}</div>
+                            <div class="order-details">
+                                📦 ${itemCount} items • 💰 Rs. ${order.total} • 🕐 ${time}
+                            </div>
+                        </div>
+                    </div>
+                `;
+            }).join('');
+        }
+
+        function renderOutForDelivery(orders) {
+            // Implementation similar to existing code
+        }
+
+        function renderDelivered(orders) {
+            // Implementation similar to existing code
+        }
+
+        async function assignNextPriorityOrder() {
+            try {
+                console.log('🚀 Assigning next priority order...');
+                
+                const res = await fetch('/api/orders/queue/assign-next', {
+                    method: 'POST'
+                });
+                const data = await res.json();
+                
+                if (data.success) {
+                    alert(`✅ ${data.priorityInfo.orderType.toUpperCase()} order ${data.order.orderId} assigned to rider!\n\nCustomer: ${data.priorityInfo.customername}\nPriority: ${data.priorityInfo.priority}`);
+                    loadDashboardData();
+                } else {
+                    alert('⚠️ ' + data.message);
+                }
+            } catch (error) {
+                console.error('❌ Error:', error);
+                alert('❌ Failed to assign order');
+            }
+        }
+
+        async function markDelivered(orderId) {
+            if (!confirm(`Mark order ${orderId} as DELIVERED?`)) return;
+            
+            try {
+                console.log('✅ Marking order as delivered:', orderId);
+                
+                const res = await fetch(`/api/orders/${orderId}/complete-delivery`, {
+                    method: 'POST'
+                });
+                const data = await res.json();
+                
+                if (data.success) {
+                    alert(`✅ Order ${orderId} marked as delivered!`);
+                    loadDashboardData();
+                } else {
+                    alert('❌ ' + data.message);
+                }
+            } catch (error) {
+                console.error('❌ Error:', error);
+                alert('❌ Failed to mark as delivered');
+            }
+        }
+    </script>
+</body>
+</html>

@@ -1,0 +1,620 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Kitchen Dashboard - DineX FIFO Queue</title>
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;600;700;800&display=swap" rel="stylesheet">
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            font-family: 'Poppins', sans-serif;
+            background: linear-gradient(135deg, #0f0f1e 0%, #1a0b2e 50%, #0f0f1e 100%);
+            color: white;
+            min-height: 100vh;
+            padding: 2rem;
+            overflow-x: hidden;
+        }
+
+        /* Floating Food Doodles */
+        .food-doodles {
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            pointer-events: none;
+            z-index: 1;
+            overflow: hidden;
+        }
+
+        .doodle {
+            position: absolute;
+            font-size: 3rem;
+            opacity: 0.08;
+            animation: float 20s infinite ease-in-out;
+        }
+
+        .doodle-1 { top: 10%; left: 10%; animation-delay: 0s; font-size: 4rem; }
+        .doodle-2 { top: 20%; right: 15%; animation-delay: 2s; font-size: 3.5rem; }
+        .doodle-3 { top: 50%; left: 5%; animation-delay: 4s; font-size: 3rem; }
+        .doodle-4 { bottom: 20%; right: 10%; animation-delay: 6s; font-size: 3.5rem; }
+        .doodle-5 { bottom: 15%; left: 15%; animation-delay: 8s; font-size: 4rem; }
+        .doodle-6 { top: 60%; right: 5%; animation-delay: 10s; font-size: 3rem; }
+        .doodle-7 { top: 30%; left: 25%; animation-delay: 12s; font-size: 3.5rem; }
+        .doodle-8 { bottom: 40%; left: 40%; animation-delay: 14s; font-size: 3rem; }
+        .doodle-9 { top: 70%; right: 25%; animation-delay: 16s; font-size: 3.5rem; }
+        .doodle-10 { bottom: 60%; right: 35%; animation-delay: 18s; font-size: 3rem; }
+        .doodle-11 { top: 40%; left: 50%; animation-delay: 3s; font-size: 3.5rem; }
+        .doodle-12 { bottom: 50%; left: 60%; animation-delay: 7s; font-size: 3rem; }
+
+        @keyframes float {
+            0%, 100% {
+                transform: translateY(0px);
+            }
+            50% {
+                transform: translateY(-20px);
+            }
+        }
+
+        .container {
+            max-width: 1400px;
+            margin: 0 auto;
+            position: relative;
+            z-index: 2;
+        }
+
+        h1 {
+            text-align: center;
+            margin-bottom: 2rem;
+            font-size: 2.5rem;
+            background: linear-gradient(135deg, #ff6b35, #ff4081);
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+        }
+
+        .info-banner {
+            background: rgba(255, 107, 53, 0.1);
+            border: 2px solid rgba(255, 107, 53, 0.3);
+            border-radius: 16px;
+            padding: 1.5rem;
+            margin-bottom: 2rem;
+            text-align: center;
+        }
+
+        .info-banner h2 {
+            color: #ff6b35;
+            margin-bottom: 0.5rem;
+            font-size: 1.5rem;
+        }
+
+        .info-banner p {
+            color: rgba(255, 255, 255, 0.7);
+            font-size: 1rem;
+        }
+
+        .stats-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+            gap: 1.5rem;
+            margin-bottom: 3rem;
+        }
+
+        .stat-card {
+            background: rgba(255, 255, 255, 0.05);
+            backdrop-filter: blur(20px);
+            border: 1px solid rgba(255, 255, 255, 0.1);
+            border-radius: 16px;
+            padding: 1.5rem;
+            text-align: center;
+        }
+
+        .stat-number {
+            font-size: 3rem;
+            font-weight: 800;
+            background: linear-gradient(135deg, #ff6b35, #ff4081);
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+            margin-bottom: 0.5rem;
+        }
+
+        .stat-label {
+            color: rgba(255, 255, 255, 0.7);
+            font-size: 1rem;
+        }
+
+        .section {
+            background: rgba(255, 255, 255, 0.05);
+            backdrop-filter: blur(20px);
+            border: 1px solid rgba(255, 255, 255, 0.1);
+            border-radius: 20px;
+            padding: 2rem;
+            margin-bottom: 2rem;
+        }
+
+        .section-header {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            margin-bottom: 1.5rem;
+        }
+
+        .section-title {
+            font-size: 1.5rem;
+            font-weight: 700;
+        }
+
+        .btn {
+            padding: 0.75rem 1.5rem;
+            border-radius: 12px;
+            border: none;
+            font-weight: 600;
+            cursor: pointer;
+            transition: all 0.3s ease;
+            font-family: 'Poppins', sans-serif;
+        }
+
+        .btn-primary {
+            background: linear-gradient(135deg, #ff6b35, #ff4081);
+            color: white;
+        }
+
+        .btn-primary:hover {
+            transform: translateY(-2px);
+            box-shadow: 0 10px 40px rgba(255, 107, 53, 0.4);
+        }
+
+        .btn-success {
+            background: linear-gradient(135deg, #ff6b35, #ff4081);
+            color: white;
+        }
+
+        .btn-success:hover {
+            transform: translateY(-2px);
+            box-shadow: 0 10px 40px rgba(255, 107, 53, 0.4);
+        }
+
+        .order-list {
+            display: flex;
+            flex-direction: column;
+            gap: 1rem;
+        }
+
+        .order-card {
+            background: rgba(255, 255, 255, 0.03);
+            border: 1px solid rgba(255, 255, 255, 0.1);
+            border-radius: 12px;
+            padding: 1.5rem;
+            display: grid;
+            grid-template-columns: auto 1fr auto;
+            gap: 1.5rem;
+            align-items: center;
+            transition: all 0.3s ease;
+        }
+
+        .order-card:hover {
+            background: rgba(255, 255, 255, 0.06);
+            border-color: rgba(255, 107, 53, 0.3);
+        }
+
+        .queue-position {
+            width: 60px;
+            height: 60px;
+            border-radius: 12px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-size: 2rem;
+            font-weight: 800;
+            background: linear-gradient(135deg, #ff6b35, #ff4081);
+        }
+
+        .order-info {
+            flex: 1;
+        }
+
+        .order-id {
+            font-size: 1.2rem;
+            font-weight: 700;
+            margin-bottom: 0.5rem;
+            color: #ff6b35;
+        }
+
+        .order-customer {
+            font-size: 1rem;
+            margin-bottom: 0.25rem;
+        }
+
+        .order-details {
+            color: rgba(255, 255, 255, 0.6);
+            font-size: 0.9rem;
+        }
+
+        .order-items {
+            margin-top: 0.5rem;
+            padding: 0.5rem;
+            background: rgba(0, 0, 0, 0.2);
+            border-radius: 8px;
+            font-size: 0.85rem;
+        }
+
+        .order-actions {
+            display: flex;
+            gap: 0.5rem;
+            flex-direction: column;
+        }
+
+        .empty-state {
+            text-align: center;
+            padding: 3rem;
+            color: rgba(255, 255, 255, 0.5);
+        }
+
+        .empty-icon {
+            font-size: 4rem;
+            margin-bottom: 1rem;
+        }
+
+        .refresh-btn {
+            position: fixed;
+            bottom: 2rem;
+            right: 2rem;
+            width: 60px;
+            height: 60px;
+            border-radius: 50%;
+            background: linear-gradient(135deg, #ff6b35, #ff4081);
+            color: white;
+            border: none;
+            font-size: 1.5rem;
+            cursor: pointer;
+            box-shadow: 0 8px 32px rgba(255, 107, 53, 0.4);
+            transition: all 0.3s ease;
+            z-index: 1000;
+        }
+
+        .refresh-btn:hover {
+            transform: scale(1.1) rotate(180deg);
+        }
+
+        .fifo-indicator {
+            display: inline-block;
+            padding: 0.5rem 1rem;
+            background: rgba(255, 107, 53, 0.2);
+            border: 1px solid rgba(255, 107, 53, 0.4);
+            border-radius: 20px;
+            font-size: 0.9rem;
+            font-weight: 600;
+            color: #ff6b35;
+        }
+
+        .timestamp {
+            color: rgba(255, 255, 255, 0.5);
+            font-size: 0.8rem;
+            margin-top: 0.25rem;
+        }
+
+        .floating-nav {
+            position: fixed;
+            top: 1.8rem;
+            right: 2rem;
+            z-index: 9999;
+            display: flex;
+        }
+
+        .floating-btn {
+            all: unset;
+            cursor: pointer;
+            padding: 0.6rem 1.3rem;
+            border-radius: 14px;
+            font-family: 'Poppins', sans-serif;
+            font-weight: 600;
+            font-size: 0.95rem;
+            color: #ff6b35;
+            background: rgba(255, 107, 53, 0.14);
+            backdrop-filter: blur(16px);
+            -webkit-backdrop-filter: blur(16px);
+            border: 1px solid rgba(255, 107, 53, 0.35);
+            box-shadow: 0 8px 30px rgba(255, 107, 53, 0.18), inset 0 0 12px rgba(255, 107, 53, 0.12);
+            transition: all 0.3s ease;
+        }
+
+        .floating-btn:hover {
+            background: rgba(255, 107, 53, 0.25);
+            transform: translateY(-2px);
+            box-shadow: 0 12px 40px rgba(255, 107, 53, 0.35), inset 0 0 14px rgba(255, 107, 53, 0.2);
+        }
+    </style>
+</head>
+<body>
+    <!-- Floating Food Doodles Background -->
+    <div class="food-doodles">
+        <div class="doodle doodle-1">🍕</div>
+        <div class="doodle doodle-2">🍔</div>
+        <div class="doodle doodle-3">🥤</div>
+        <div class="doodle doodle-4">🍟</div>
+        <div class="doodle doodle-5">🌮</div>
+        <div class="doodle doodle-6">🍰</div>
+        <div class="doodle doodle-7">🥗</div>
+        <div class="doodle doodle-8">🍩</div>
+        <div class="doodle doodle-9">🍝</div>
+        <div class="doodle doodle-10">🥪</div>
+        <div class="doodle doodle-11">🍜</div>
+        <div class="doodle doodle-12">🧃</div>
+    </div>
+
+    <nav class="floating-nav">
+        <a href="/" class="floating-btn">🏠 Home</a>
+    </nav>
+
+    <div class="container">
+        <h1>👨‍🍳 Kitchen Dashboard</h1>
+
+        <div class="info-banner">
+            <h2>🍽️ Fresh meals are prepared with care as orders arrive.</h2>
+            <p>👨‍🍳 Our chefs focus on quality, taste, and timely preparation for every dish.</p>
+        </div>
+
+        <!-- Statistics -->
+        <div class="stats-grid">
+            <div class="stat-card">
+                <div class="stat-number" id="statWaiting">0</div>
+                <div class="stat-label">⏳ Waiting in Queue</div>
+            </div>
+            <div class="stat-card">
+                <div class="stat-number" id="statCooking">0</div>
+                <div class="stat-label">👨‍🍳 Currently Cooking</div>
+            </div>
+            <div class="stat-card">
+                <div class="stat-number" id="statCompleted">0</div>
+                <div class="stat-label">✅ Completed Today</div>
+            </div>
+            <div class="stat-card">
+                <div class="stat-number" id="statTotal">0</div>
+                <div class="stat-label">📊 Total Orders</div>
+            </div>
+        </div>
+
+        <!-- Waiting Queue -->
+        <div class="section">
+            <div class="section-header">
+                <div>
+                    <h2 class="section-title">⏳ Waiting Queue (FIFO Order)</h2>
+                    <span class="fifo-indicator">🔄 First In → First Out</span>
+                </div>
+                <button class="btn btn-primary" onclick="startCookingNext()">
+                    Start Cooking Next ▶️
+                </button>
+            </div>
+            <div id="waitingOrders" class="order-list">
+                <div class="empty-state">
+                    <div class="empty-icon">📦</div>
+                    <p>No orders waiting</p>
+                </div>
+            </div>
+        </div>
+
+        <!-- Cooking Orders -->
+        <div class="section">
+            <div class="section-header">
+                <h2 class="section-title">👨‍🍳 Currently Cooking</h2>
+            </div>
+            <div id="cookingOrders" class="order-list">
+                <div class="empty-state">
+                    <div class="empty-icon">🍳</div>
+                    <p>No orders being cooked</p>
+                </div>
+            </div>
+        </div>
+
+        <!-- Completed Orders -->
+        <div class="section">
+            <div class="section-header">
+                <h2 class="section-title">✅ Completed (Ready for Delivery)</h2>
+            </div>
+            <div id="completedOrders" class="order-list">
+                <div class="empty-state">
+                    <div class="empty-icon">🎉</div>
+                    <p>No completed orders</p>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <button class="refresh-btn" onclick="loadKitchenData()" title="Refresh">
+        🔄
+    </button>
+
+    <script>
+        document.addEventListener('DOMContentLoaded', () => {
+            loadKitchenData();
+            setInterval(loadKitchenData, 5000);
+        });
+
+        async function loadKitchenData() {
+            try {
+                const res = await fetch('/api/kitchen/stats');
+                const data = await res.json();
+                
+                if (data.success) {
+                    document.getElementById('statWaiting').textContent = data.stats.waiting;
+                    document.getElementById('statCooking').textContent = data.stats.cooking;
+                    document.getElementById('statCompleted').textContent = data.stats.completed;
+                    document.getElementById('statTotal').textContent = data.stats.total;
+                    
+                    renderWaitingOrders(data.orders.waiting);
+                    renderCookingOrders(data.orders.cooking);
+                    renderCompletedOrders(data.orders.completed);
+                }
+            } catch (error) {
+                console.error('Error loading kitchen data:', error);
+            }
+        }
+
+        function renderWaitingOrders(orders) {
+            const container = document.getElementById('waitingOrders');
+            
+            if (!orders || orders.length === 0) {
+                container.innerHTML = `
+                    <div class="empty-state">
+                        <div class="empty-icon">📦</div>
+                        <p>No orders waiting in queue</p>
+                    </div>
+                `;
+                return;
+            }
+
+            container.innerHTML = orders.map((order, index) => {
+                const position = index + 1;
+                const itemCount = order.items.reduce((sum, item) => sum + item.quantity, 0);
+                const time = new Date(order.timestamp).toLocaleTimeString();
+                const itemsList = order.items.map(item => 
+                    `${item.quantity}x ${item.name}`
+                ).join(', ');
+                
+                return `
+                    <div class="order-card">
+                        <div class="queue-position">
+                            #${position}
+                        </div>
+                        <div class="order-info">
+                            <div class="order-id">${order.orderId}</div>
+                            <div class="order-customer">👤 ${order.customerName}</div>
+                            <div class="order-details">
+                                📦 ${itemCount} items • 💰 Rs. ${order.total}
+                            </div>
+                            <div class="timestamp">⏰ Ordered at ${time}</div>
+                            <div class="order-items">
+                                🍽️ ${itemsList}
+                            </div>
+                        </div>
+                    </div>
+                `;
+            }).join('');
+        }
+
+        function renderCookingOrders(orders) {
+            const container = document.getElementById('cookingOrders');
+            
+            if (!orders || orders.length === 0) {
+                container.innerHTML = `
+                    <div class="empty-state">
+                        <div class="empty-icon">🍳</div>
+                        <p>No orders being cooked</p>
+                    </div>
+                `;
+                return;
+            }
+
+            container.innerHTML = orders.map(order => {
+                const itemCount = order.items.reduce((sum, item) => sum + item.quantity, 0);
+                const startTime = new Date(order.cookingStartedAt).toLocaleTimeString();
+                const itemsList = order.items.map(item => 
+                    `${item.quantity}x ${item.name}`
+                ).join(', ');
+                
+                return `
+                    <div class="order-card">
+                        <div class="queue-position" style="background: linear-gradient(135deg, #ffd700, #ff8c00);">
+                            🔥
+                        </div>
+                        <div class="order-info">
+                            <div class="order-id">${order.orderId}</div>
+                            <div class="order-customer">👤 ${order.customerName}</div>
+                            <div class="order-details">
+                                📦 ${itemCount} items • 💰 Rs. ${order.total}
+                            </div>
+                            <div class="timestamp">🍳 Started at ${startTime}</div>
+                            <div class="order-items">
+                                🍽️ ${itemsList}
+                            </div>
+                        </div>
+                        <div class="order-actions">
+                            <button class="btn btn-success" onclick="finishCooking('${order.orderId}')">
+                                Finish Cooking ✔
+                            </button>
+                        </div>
+                    </div>
+                `;
+            }).join('');
+        }
+
+        function renderCompletedOrders(orders) {
+            const container = document.getElementById('completedOrders');
+            
+            if (!orders || orders.length === 0) {
+                container.innerHTML = `
+                    <div class="empty-state">
+                        <div class="empty-icon">🎉</div>
+                        <p>No completed orders</p>
+                    </div>
+                `;
+                return;
+            }
+
+            container.innerHTML = orders.map(order => {
+                const itemCount = order.items.reduce((sum, item) => sum + item.quantity, 0);
+                const completedTime = new Date(order.cookingCompletedAt).toLocaleTimeString();
+                
+                return `
+                    <div class="order-card">
+                        <div class="queue-position" style="background: linear-gradient(135deg, #00d4aa, #00b894);">
+                            ✅
+                        </div>
+                        <div class="order-info">
+                            <div class="order-id">${order.orderId}</div>
+                            <div class="order-customer">👤 ${order.customerName}</div>
+                            <div class="order-details">
+                                📦 ${itemCount} items • 💰 Rs. ${order.total}
+                            </div>
+                            <div class="timestamp">✅ Completed at ${completedTime}</div>
+                        </div>
+                    </div>
+                `;
+            }).join('');
+        }
+
+        async function startCookingNext() {
+            try {
+                const res = await fetch('/api/kitchen/next', {
+                    method: 'POST'
+                });
+                const data = await res.json();
+                
+                if (data.success) {
+                    alert(`✅ Started cooking ${data.order.orderId}!`);
+                    loadKitchenData();
+                } else {
+                    alert('⚠️ ' + data.message);
+                }
+            } catch (error) {
+                console.error('Error starting cooking:', error);
+                alert('❌ Failed to start cooking');
+            }
+        }
+
+        async function finishCooking(orderId) {
+            try {
+                const res = await fetch(`/api/kitchen/complete/${orderId}`, {
+                    method: 'POST'
+                });
+                const data = await res.json();
+                
+                if (data.success) {
+                    alert(`✅ Finished cooking ${orderId}!`);
+                    loadKitchenData();
+                } else {
+                    alert('❌ Failed to finish cooking');
+                }
+            } catch (error) {
+                console.error('Error finishing cooking:', error);
+                alert('❌ Failed to finish cooking');
+            }
+        }
+    </script>
+</body>
+</html>
